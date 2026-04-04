@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /c/Users/fredd/farmers-table-redesign rev-parse --git-dir)",
+      "Bash(git -C /c/Users/fredd/farmers-table-redesign remote -v)",
+      "Bash(git -C /c/Users/fredd log --oneline origin/master..HEAD)",
+      "Bash(git -C /c/Users/fredd status --short -- farmers-table-redesign/)",
+      "Bash(git init:*)",
+      "Bash(git remote:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)"
+    ]
+  }
+}
