@@ -92,22 +92,6 @@ export function MenuPage() {
         </div>
       </section>
 
-      {/* Sticky Category Nav */}
-      <nav className="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-sm border-b border-brand-oat shadow-soft">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2 overflow-x-auto">
-          {MENU_DATA.map((cat) => (
-            <a
-              key={cat.category}
-              href={`#${categoryId(cat.category)}`}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full font-sans text-sm font-medium whitespace-nowrap border border-brand-oat text-brand-charcoal hover:bg-brand-green hover:text-brand-cream hover:border-brand-green transition-all duration-200"
-            >
-              <span>{CATEGORY_ICONS[cat.category]}</span>
-              <span>{cat.category}</span>
-            </a>
-          ))}
-        </div>
-      </nav>
-
       {/* Menu Sections */}
       {MENU_DATA.map((category, catIndex) => (
         <section
@@ -118,13 +102,11 @@ export function MenuPage() {
           <div className="max-w-7xl mx-auto">
             {/* Category Header */}
             <div className="text-center mb-16">
-              <div className="mx-auto mb-6 w-28 h-28 rounded-full overflow-hidden border-4 border-brand-oat shadow-soft">
-                <img
-                  src={CATEGORY_IMAGES[category.category]}
-                  alt={`${category.category} at The Farmer's Table`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <img
+                src={CATEGORY_IMAGES[category.category]}
+                alt={`${category.category} at The Farmer's Table`}
+                className="mx-auto mb-6 w-48 h-48 rounded-full object-cover block"
+              />
               <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-3">
                 {category.description}
               </p>
