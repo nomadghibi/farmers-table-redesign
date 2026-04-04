@@ -35,7 +35,7 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           {desktopLinks.map((link) =>
-            link.href.startsWith("/") ? (
+            link.href.startsWith("/") && !link.href.includes("#") ? (
               <Link
                 key={link.label}
                 to={link.href}
@@ -110,7 +110,7 @@ export function Header() {
         <div className="border-t border-brand-oat bg-brand-cream md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:px-6">
             {desktopLinks.map((link) =>
-              link.href.startsWith("/") ? (
+              link.href.startsWith("/") && !link.href.includes("#") ? (
                 <Link
                   key={link.label}
                   to={link.href}

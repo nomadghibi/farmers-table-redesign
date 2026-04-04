@@ -254,6 +254,6 @@ export const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Menu", href: "/menu" },
   { label: "Serendipity Farms", href: "/serendipity-farms" },
-  { label: "Visit Us", href: "#visit" },
+  { label: "Visit Us", href: "/#visit" },
   { label: "Storefront", href: "/storefront" },
 ];
