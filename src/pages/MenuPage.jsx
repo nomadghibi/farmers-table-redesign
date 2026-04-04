@@ -4,6 +4,11 @@ import { Button } from "../components/ui/Button";
 import { SEO } from "../components/util/SEO";
 import { MENU_DATA } from "../data/menu";
 import heroImage from "../assets/Farm fresh breakfast, rustic takeout vibe.png";
+import breakfastIcon from "../assets/Delicious morning sunrise breakfast scene.png";
+import lunchIcon from "../assets/Fresh lunch spread on a plate.png";
+import dinnerIcon from "../assets/Farm-to-table dinner at sunset.png";
+import bakeryIcon from "../assets/Bakery & desserts icon.png";
+import beveragesIcon from "../assets/A variety of refreshing beverages.png";
 
 const CATEGORY_ICONS = {
   Breakfast: "🌅",
@@ -11,6 +16,14 @@ const CATEGORY_ICONS = {
   Dinner: "🍽️",
   "Bakery & Desserts": "🥧",
   Beverages: "☕",
+};
+
+const CATEGORY_IMAGES = {
+  Breakfast: breakfastIcon,
+  Lunch: lunchIcon,
+  Dinner: dinnerIcon,
+  "Bakery & Desserts": bakeryIcon,
+  Beverages: beveragesIcon,
 };
 
 const ITEM_BADGES = ["Farm-Fresh", "House-Made", "Local Favorite", "Seasonal", "Signature"];
@@ -90,7 +103,13 @@ export function MenuPage() {
           <div className="max-w-7xl mx-auto">
             {/* Category Header */}
             <div className="text-center mb-16">
-              <span className="text-5xl block mb-4">{CATEGORY_ICONS[category.category]}</span>
+              <div className="mx-auto mb-6 w-28 h-28 rounded-full overflow-hidden border-4 border-brand-oat shadow-soft">
+                <img
+                  src={CATEGORY_IMAGES[category.category]}
+                  alt={`${category.category} at The Farmer's Table`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-3">
                 {category.description}
               </p>
