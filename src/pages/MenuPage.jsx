@@ -4,6 +4,21 @@ import { Button } from "../components/ui/Button";
 import { SEO } from "../components/util/SEO";
 import { MENU_DATA } from "../data/menu";
 import heroImage from "../assets/Farm fresh breakfast, rustic takeout vibe.png";
+import biscuitsImage from "../assets/Biscuits and gravy menu design.png";
+import eggsBenedictImage from "../assets/Eggs Benedict cozy delight.png";
+import hashEggsImage from "../assets/Hash and eggs breakfast delight.png";
+import pancakesImage from "../assets/Pancakes or French toast breakfast special.png";
+import breakfastSandwichImage from "../assets/Farmhouse breakfast sandwich delight.png";
+import freshFruitImage from "../assets/Fresh fruit plate with rustic charm.png";
+
+const ITEM_IMAGES = {
+  "Biscuits & Gravy": biscuitsImage,
+  "Eggs Benedict": eggsBenedictImage,
+  "Hash & Eggs": hashEggsImage,
+  "Pancakes or French Toast": pancakesImage,
+  "Breakfast Sandwich": breakfastSandwichImage,
+  "Fresh Fruit Plate": freshFruitImage,
+};
 import breakfastIcon from "../assets/Delicious morning sunrise breakfast scene.png";
 import lunchIcon from "../assets/Fresh lunch spread on a plate.png";
 import dinnerIcon from "../assets/Farm-to-table dinner at sunset.png";
@@ -130,22 +145,37 @@ export function MenuPage() {
                   key={item.name}
                   className="group bg-white rounded-2xl border border-brand-oat shadow-soft hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
                 >
-                  {/* Badge strip */}
-                  <div className="bg-brand-green/10 border-b border-brand-oat px-6 py-2.5 flex items-center justify-between">
-                    <span className="font-sans text-xs font-semibold uppercase tracking-widest text-brand-green">
-                      {getBadge(itemIndex)}
-                    </span>
-                    <span className="text-brand-green/40 text-lg">✦</span>
-                  </div>
+                  {/* Item image if available */}
+                  {ITEM_IMAGES[item.name] && (
+                    <div className="relative h-72 overflow-hidden">
+                      <img
+                        src={ITEM_IMAGES[item.name]}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <span className="absolute top-3 left-3 font-sans text-xs font-semibold uppercase tracking-widest text-brand-green bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+                        {getBadge(itemIndex)} ✦
+                      </span>
+                    </div>
+                  )}
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-green transition-colors mb-3 leading-snug">
-                      {item.name}
-                    </h3>
-                    <p className="font-sans text-sm leading-relaxed text-brand-charcoal/70 flex-1">
-                      {item.description}
-                    </p>
+                    {!ITEM_IMAGES[item.name] && (
+                      <span className="font-sans text-xs font-semibold uppercase tracking-widest text-brand-green mb-3 block">
+                        {getBadge(itemIndex)} ✦
+                      </span>
+                    )}
+                    {!ITEM_IMAGES[item.name] && (
+                      <>
+                        <h3 className="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-green transition-colors mb-3 leading-snug">
+                          {item.name}
+                        </h3>
+                        <p className="font-sans text-sm leading-relaxed text-brand-charcoal/70 flex-1">
+                          {item.description}
+                        </p>
+                      </>
+                    )}
                     <div className="flex items-center justify-between pt-5 mt-5 border-t border-brand-oat">
                       <span className="font-sans text-xs uppercase tracking-wider text-brand-sage">
                         {category.category}
