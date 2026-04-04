@@ -2,97 +2,106 @@ import { BUSINESS_INFO, HOURS } from "../../data/siteContent";
 
 export function VisitUsSection() {
   return (
-    <section id="visit" className="py-24 px-4 bg-brand-cream">
-      <div className="mx-auto max-w-6xl">
+    <section
+      id="visit"
+      className="py-24 px-4 bg-[radial-gradient(circle_at_top_left,rgba(178,94,45,0.22),transparent_25%),linear-gradient(180deg,#7e381b_0%,#3d1406_100%)] text-[#f3e2d0]"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Heading */}
         <div className="text-center mb-16">
-          <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-3">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-[#c9a07a] mb-3">
             Find Us
           </p>
-          <h2 className="font-serif text-5xl font-bold text-brand-charcoal mb-5">
+          <h2 className="font-serif text-5xl font-bold text-[#f7e6d8] mb-5">
             Join Us in Wolverine, Michigan
           </h2>
           <div className="flex items-center justify-center gap-4">
-            <div className="h-px w-24 bg-brand-oat" />
-            <div className="w-2 h-2 rounded-full bg-brand-green" />
-            <div className="h-px w-24 bg-brand-oat" />
+            <div className="h-px w-24 bg-[#a35e34]/60" />
+            <div className="w-2 h-2 rounded-full bg-[#c9a07a]" />
+            <div className="h-px w-24 bg-[#a35e34]/60" />
           </div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          {/* Location & contact */}
-          <div className="rounded-2xl border border-brand-oat bg-[#f5ede3] p-10 shadow-soft">
-            <p className="font-sans text-lg leading-relaxed text-brand-charcoal/80 mb-8">
-              Whether you're planning breakfast, lunch, dinner, or dessert, we'd love to welcome you in person. Stop by during business hours and enjoy a local dining experience built on freshness and hospitality.
-            </p>
+        {/* Map + Info */}
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
-            <div className="grid gap-6 sm:grid-cols-2 mb-8">
-              <div className="rounded-xl bg-white border border-brand-oat p-6 shadow-soft">
-                <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-brand-sage mb-3">
+          {/* Google Map */}
+          <div className="rounded-2xl overflow-hidden shadow-soft min-h-[420px]">
+            <iframe
+              title="The Farmer's Table location"
+              src="https://maps.google.com/maps?q=4853+Webb+Rd,Wolverine,Michigan,49799&hl=en&z=14&output=embed"
+              width="100%"
+              height="100%"
+              style={{ minHeight: "420px", border: 0, display: "block" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+
+          {/* Info panel */}
+          <div className="bg-[#3c1b0d]/90 rounded-2xl border border-[#a35c2f] p-10 shadow-soft flex flex-col justify-between gap-8">
+
+            {/* Address & Contact */}
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#c9a07a] mb-3">
                   Address
                 </p>
-                <p className="font-serif text-lg font-semibold text-brand-charcoal">
+                <p className="font-serif text-lg font-bold text-[#f7e6d8]">
                   {BUSINESS_INFO.address}
                 </p>
-                <p className="font-sans text-brand-charcoal/70">
+                <p className="font-sans text-[#f7e1cd]/80 mt-1">
                   {BUSINESS_INFO.city}, {BUSINESS_INFO.state} {BUSINESS_INFO.zip}
                 </p>
               </div>
-
-              <div className="rounded-xl bg-white border border-brand-oat p-6 shadow-soft">
-                <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-brand-sage mb-3">
+              <div>
+                <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#c9a07a] mb-3">
                   Contact
                 </p>
                 <a
                   href={BUSINESS_INFO.phoneLink}
-                  className="font-serif text-lg font-semibold text-brand-charcoal hover:text-brand-green transition-colors block"
+                  className="font-serif text-lg font-bold text-[#f7e6d8] hover:text-[#c9a07a] transition-colors block"
                 >
                   {BUSINESS_INFO.phone}
                 </a>
-                <p className="font-sans text-brand-charcoal/70 mt-1">
-                  Breakfast served until {BUSINESS_INFO.breakfastUntil}
+                <p className="font-sans text-[#f7e1cd]/80 mt-1">
+                  Breakfast until {BUSINESS_INFO.breakfastUntil}
                 </p>
               </div>
             </div>
 
+            {/* Hours */}
+            <div>
+              <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-[#c9a07a] mb-4">
+                Hours
+              </p>
+              <div className="space-y-3">
+                {HOURS.map((item) => (
+                  <div
+                    key={item.day}
+                    className="flex items-center justify-between border-b border-[#a35c2f]/40 pb-3 last:border-0 last:pb-0"
+                  >
+                    <span className="font-sans text-sm text-[#f7e1cd]/80">
+                      {item.day}
+                    </span>
+                    <span className="font-serif text-sm font-bold text-[#f7e6d8]">
+                      {item.time}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
             <a
               href={BUSINESS_INFO.mapsQuery}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-4 font-sans text-sm font-semibold text-brand-cream shadow-soft transition-all duration-200 hover:bg-[#1e4a37] hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#c9a07a] text-[#3c1b0d] px-8 py-4 font-sans text-sm font-semibold shadow-soft transition-all duration-200 hover:bg-[#d4b48a] hover:-translate-y-0.5"
             >
-              Open in Maps →
+              Get Directions →
             </a>
-          </div>
-
-          {/* Hours */}
-          <div className="rounded-2xl bg-brand-charcoal p-10 shadow-soft">
-            <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-6">
-              Hours
-            </p>
-            <div className="space-y-4">
-              {HOURS.map((item) => (
-                <div
-                  key={item.day}
-                  className="flex items-center justify-between border-b border-white/10 pb-4 last:border-0 last:pb-0"
-                >
-                  <span className="font-sans text-sm font-medium text-brand-cream/80">
-                    {item.day}
-                  </span>
-                  <span className="font-serif text-sm font-bold text-brand-cream">
-                    {item.time}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 rounded-xl bg-white/10 p-5">
-              <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-brand-sage mb-2">
-                Note
-              </p>
-              <p className="font-sans text-sm leading-7 text-brand-cream/80">
-                Breakfast is served until {BUSINESS_INFO.breakfastUntil}.
-              </p>
-            </div>
           </div>
         </div>
       </div>

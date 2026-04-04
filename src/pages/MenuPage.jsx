@@ -10,25 +10,76 @@ import hashEggsImage from "../assets/Hash and eggs breakfast delight.png";
 import pancakesImage from "../assets/Pancakes or French toast breakfast special.png";
 import breakfastSandwichImage from "../assets/Farmhouse breakfast sandwich delight.png";
 import freshFruitImage from "../assets/Fresh fruit plate with rustic charm.png";
+import smashBurgerImage from "../assets/Smash burger with local ingredients.png";
+import grilledCheeseImage from "../assets/Grilled cheese and tomato soup.png";
+import pulledPorkImage from "../assets/Pulled pork sandwich with coleslaw.png";
+import saladImage from "../assets/Farm-fresh salad lunch menu.png";
+import chickenSandwichImage from "../assets/Rustic chicken sandwich menu design.png";
+import potRoastImage from "../assets/Farmhouse pot roast with comfort and care.png";
+import friedChickenImage from "../assets/Farm-fresh fried chicken delight.png";
+import steakDinnerImage from "../assets/Steak dinner with local goodness.png";
+import fishImage from "../assets/Pan-seared fish of the day.png";
+import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
+import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
+import vegetarianImage from "../assets/Vegetarian feast on a farmhouse menu.png";
+import pieImage from "../assets/Freshly baked pies with love.png";
+import cakeImage from "../assets/Chocolate layer cake with farmhouse charm.png";
+import tartImage from "../assets/Seasonal fruit tart and fresh flavors.png";
+import cinnamonRollImage from "../assets/Rustic cinnamon roll bakery advertisement.png";
+import breadPuddingImage from "../assets/Comforting bread pudding delight.png";
+import cookieImage from "../assets/Freshly baked cookie assortment.png";
+import cornedBeefHashImage from "../assets/Farmhouse corned beef hash delight.png";
+import omeletImage from "../assets/Egg-ceptional omelets and farm freshness.png";
 
 const ITEM_IMAGES = {
   "Biscuits & Gravy": biscuitsImage,
   "Eggs Benedict": eggsBenedictImage,
   "Hash & Eggs": hashEggsImage,
+  "Corned Beef Hash": cornedBeefHashImage,
+  "Egg-straordinary Omeletes": omeletImage,
   "Pancakes or French Toast": pancakesImage,
   "Breakfast Sandwich": breakfastSandwichImage,
   "Fresh Fruit Plate": freshFruitImage,
+  "Smash Burger": smashBurgerImage,
+  "Grilled Cheese & Tomato Soup": grilledCheeseImage,
+  "Pulled Pork Sandwich": pulledPorkImage,
+  "Salad Garden": saladImage,
+  "Chicken Sandwich": chickenSandwichImage,
+  "Pot Roast": potRoastImage,
+  "Serendipity Farms Fried Chicken": friedChickenImage,
+  "New York Strip Steak": steakDinnerImage,
+  "Pan-Seared Fish of the Day": fishImage,
+  "Braised Short Ribs": shortRibsImage,
+  "Pork Chop Two Ways": porkChopImage,
+  "Vegetarian Feast": vegetarianImage,
+  "Fresh Baked Pie": pieImage,
+  "Chocolate Layer Cake": cakeImage,
+  "Seasonal Tart": tartImage,
+  "Cinnamon Roll": cinnamonRollImage,
+  "Bread Pudding": breadPuddingImage,
+  "Cookie Assortment": cookieImage,
 };
-import breakfastIcon from "../assets/Delicious morning sunrise breakfast scene.png";
-import lunchIcon from "../assets/Fresh lunch spread on a plate.png";
-import dinnerIcon from "../assets/Farm-to-table dinner at sunset.png";
+import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.png";
+import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.png";
+import dinnerIcon from "../assets/Cozy farmhouse dinner at sunset.png";
 import bakeryIcon from "../assets/Bakery & desserts icon.png";
 import beveragesIcon from "../assets/A variety of refreshing beverages.png";
+import sidesIcon from "../assets/Homemade chips and vintage farm style.png";
+import heartyClassicsIcon from "../assets/Farmhouse breakfast at sunrise.png";
+import saladsIcon from "../assets/Farm-fresh salad with rustic charm.png";
+import skilletsIcon from "../assets/Rustic farm skillet breakfast scene.png";
+import veganIcon from "../assets/Vegan delights at The Farmers Table.png";
 
 const CATEGORY_ICONS = {
   Breakfast: "🌅",
+  Skillets: "🍳",
+  "Hearty Classics": "🥞",
   Lunch: "🥗",
+  Sides: "🍟",
+  Salads: "🥬",
+  "Vegan Delights": "🌱",
   Dinner: "🍽️",
+  "Bakery Delights": "🥐",
   "Bakery & Desserts": "🥧",
   Beverages: "☕",
 };
@@ -39,6 +90,11 @@ const CATEGORY_IMAGES = {
   Dinner: dinnerIcon,
   "Bakery & Desserts": bakeryIcon,
   Beverages: beveragesIcon,
+  Sides: sidesIcon,
+  "Hearty Classics": heartyClassicsIcon,
+  Salads: saladsIcon,
+  Skillets: skilletsIcon,
+  "Vegan Delights": veganIcon,
 };
 
 const ITEM_BADGES = ["Farm-Fresh", "House-Made", "Local Favorite", "Seasonal", "Signature"];
@@ -102,11 +158,17 @@ export function MenuPage() {
           <div className="max-w-7xl mx-auto">
             {/* Category Header */}
             <div className="text-center mb-16">
-              <img
-                src={CATEGORY_IMAGES[category.category]}
-                alt={`${category.category} at The Farmer's Table`}
-                className="mx-auto mb-6 w-48 h-48 rounded-full object-cover block"
-              />
+              {CATEGORY_IMAGES[category.category] ? (
+                <img
+                  src={CATEGORY_IMAGES[category.category]}
+                  alt={`${category.category} at The Farmer's Table`}
+                  className="mx-auto mb-6 w-48 h-48 rounded-full object-cover block"
+                />
+              ) : (
+                <div className="mx-auto mb-6 w-48 h-48 rounded-full bg-brand-oat flex items-center justify-center text-6xl">
+                  {CATEGORY_ICONS[category.category]}
+                </div>
+              )}
               <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-3">
                 {category.description}
               </p>
@@ -148,20 +210,15 @@ export function MenuPage() {
                         {getBadge(itemIndex)} ✦
                       </span>
                     )}
+                    <h3 className="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-green transition-colors mb-2 leading-snug">
+                      {item.name}
+                    </h3>
                     {!ITEM_IMAGES[item.name] && (
-                      <>
-                        <h3 className="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-green transition-colors mb-3 leading-snug">
-                          {item.name}
-                        </h3>
-                        <p className="font-sans text-sm leading-relaxed text-brand-charcoal/70 flex-1">
-                          {item.description}
-                        </p>
-                      </>
+                      <p className="font-sans text-sm leading-relaxed text-brand-charcoal/70 flex-1">
+                        {item.description}
+                      </p>
                     )}
-                    <div className="flex items-center justify-between pt-5 mt-5 border-t border-brand-oat">
-                      <span className="font-sans text-xs uppercase tracking-wider text-brand-sage">
-                        {category.category}
-                      </span>
+                    <div className="flex items-center justify-between pt-4 mt-auto border-t border-brand-oat">
                       <span className="font-serif text-lg font-bold text-brand-green">
                         {item.price}
                       </span>
