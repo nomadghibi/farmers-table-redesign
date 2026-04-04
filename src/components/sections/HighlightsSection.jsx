@@ -1,45 +1,38 @@
-import { SectionHeading } from "../ui/SectionHeading";
 import { HIGHLIGHTS } from "../../data/siteContent";
+
+const ICONS = ["🌾", "🍽️", "🤝"];
 
 export function HighlightsSection() {
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Why Guests Choose Us"
-          title="Fresh ingredients, thoughtful cooking, and a place that feels worth coming back to"
-          description="We are committed to quality, local sourcing, and a warm dining experience."
-        />
+    <section className="py-24 px-4 bg-[radial-gradient(circle_at_top_left,rgba(178,94,45,0.22),transparent_25%),linear-gradient(180deg,#7e381b_0%,#3d1406_100%)] text-[#f3e2d0]">
+      <div className="mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-[#c9a07a] mb-3">
+            Why Guests Choose Us
+          </p>
+          <h2 className="font-serif text-5xl font-bold text-[#f7e6d8] mb-5">
+            Fresh, Local & Genuine
+          </h2>
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px w-24 bg-[#a35e34]/60" />
+            <div className="w-2 h-2 rounded-full bg-[#c9a07a]" />
+            <div className="h-px w-24 bg-[#a35e34]/60" />
+          </div>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           {HIGHLIGHTS.map((item, index) => (
             <div
               key={item.title}
-              className="rounded-[28px] border border-stone-200 bg-stone-50 p-8 shadow-sm transition-smooth hover:-translate-y-1 hover:shadow-md"
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
+              className="bg-[#3c1b0d]/90 rounded-3xl p-8 border border-[#a35c2f] shadow-soft hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-900 text-white transition-smooth group-hover:scale-110">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-stone-900">
+              <div className="text-4xl mb-5">{ICONS[index]}</div>
+              <h3 className="font-serif text-2xl font-bold text-[#f7e6d8] mb-4">
                 {item.title}
               </h3>
-              <p className="mt-4 leading-7 text-stone-600">{item.text}</p>
+              <p className="font-sans text-[#f7e1cd]/80 leading-relaxed">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>

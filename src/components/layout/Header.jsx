@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/Button";
 import { BUSINESS_INFO, NAV_LINKS } from "../../data/siteContent";
+import { useCart } from "../../context/CartContext";
 import logoImage from "../../assets/logo.png";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { cartCount } = useCart();
+  const navigate = useNavigate();
 
   const desktopLinks = NAV_LINKS.filter((link) => link.label !== "Home");
 
@@ -31,19 +34,16 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
-          {desktopLinks.map((link) => {
-            if (link.label === "Menu" || link.label === "About" || link.label === "Contact") {
-              return (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className="text-sm font-medium text-brand-charcoal hover:text-brand-green transition"
-                >
-                  {link.label}
-                </Link>
-              );
-            }
-            return (
+          {desktopLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-sm font-medium text-brand-charcoal hover:text-brand-green transition"
+              >
+                {link.label}
+              </Link>
+            ) : (
               <a
                 key={link.label}
                 href={link.href}
@@ -51,27 +51,26 @@ export function Header() {
               >
                 {link.label}
               </a>
-            );
-          })}
+            )
+          )}
         </nav>
 
         {/* Desktop CTA Buttons */}
         <div className="hidden items-center gap-3 md:flex">
-          <Button
-            href={BUSINESS_INFO.phoneLink}
-            variant="secondary"
-            size="sm"
-          >
+          <Button href={BUSINESS_INFO.phoneLink} variant="secondary" size="sm">
             Call Now
           </Button>
-          <Button
-            href={BUSINESS_INFO.mapsQuery}
-            variant="primary"
-            size="sm"
-            external
-          >
+          <Button href={BUSINESS_INFO.mapsQuery} variant="primary" size="sm" external>
             Get Directions
           </Button>
+          {cartCount > 0 && (
+            <button
+              onClick={() => navigate("/checkout")}
+              className="flex items-center gap-1.5 bg-brand-green text-brand-cream px-4 py-2 rounded-full font-sans text-sm font-semibold shadow-soft hover:bg-[#1e4a37] transition-all duration-200"
+            >
+              🛒 <span>{cartCount}</span>
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -110,20 +109,17 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="border-t border-brand-oat bg-brand-cream md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:px-6">
-            {desktopLinks.map((link) => {
-              if (link.label === "Menu" || link.label === "About" || link.label === "Contact") {
-                return (
-                  <Link
-                    key={link.label}
-                    to={link.href}
-                    className="text-sm font-medium text-brand-charcoal transition hover:text-brand-green"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              }
-              return (
+            {desktopLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="text-sm font-medium text-brand-charcoal transition hover:text-brand-green"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ) : (
                 <a
                   key={link.label}
                   href={link.href}
@@ -132,24 +128,23 @@ export function Header() {
                 >
                   {link.label}
                 </a>
-              );
-            })}
+              )
+            )}
             <div className="flex flex-col gap-3 pt-2">
-              <Button
-                href={BUSINESS_INFO.phoneLink}
-                variant="secondary"
-                className="w-full"
-              >
+              <Button href={BUSINESS_INFO.phoneLink} variant="secondary" className="w-full">
                 Call Now
               </Button>
-              <Button
-                href={BUSINESS_INFO.mapsQuery}
-                variant="primary"
-                className="w-full"
-                external
-              >
+              <Button href={BUSINESS_INFO.mapsQuery} variant="primary" className="w-full" external>
                 Get Directions
               </Button>
+              {cartCount > 0 && (
+                <button
+                  onClick={() => { navigate("/checkout"); setMobileMenuOpen(false); }}
+                  className="w-full flex items-center justify-center gap-2 bg-brand-green text-brand-cream py-3 rounded-full font-sans text-sm font-semibold shadow-soft hover:bg-[#1e4a37] transition-all duration-200"
+                >
+                  🛒 Go to Checkout ({cartCount})
+                </button>
+              )}
             </div>
           </div>
         </div>

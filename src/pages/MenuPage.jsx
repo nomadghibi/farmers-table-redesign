@@ -1,11 +1,27 @@
-import { Link } from "react-router-dom";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
-import { SectionHeading } from "../components/ui/SectionHeading";
-import { MenuCard } from "../components/ui/MenuCard";
 import { Button } from "../components/ui/Button";
 import { SEO } from "../components/util/SEO";
 import { MENU_DATA } from "../data/menu";
+import heroImage from "../assets/Farm fresh breakfast, rustic takeout vibe.png";
+
+const CATEGORY_ICONS = {
+  Breakfast: "🌅",
+  Lunch: "🥗",
+  Dinner: "🍽️",
+  "Bakery & Desserts": "🥧",
+  Beverages: "☕",
+};
+
+const ITEM_BADGES = ["Farm-Fresh", "House-Made", "Local Favorite", "Seasonal", "Signature"];
+
+function getBadge(index) {
+  return ITEM_BADGES[index % ITEM_BADGES.length];
+}
+
+function categoryId(name) {
+  return name.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
+}
 
 export function MenuPage() {
   return (
@@ -17,122 +33,141 @@ export function MenuPage() {
       />
       <Header />
 
-      {/* Storefront Hero */}
-      <section className="relative overflow-hidden bg-brand-green py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-green via-brand-green/90 to-brand-green/80" />
-        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-oat">
-              Our Menu
-            </p>
-            <h1 className="mt-4 text-5xl font-semibold tracking-tight text-brand-cream sm:text-6xl lg:text-7xl">
-              Farm-to-Table Dining
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-xl leading-8 text-brand-oat/90">
-              Fresh local ingredients, thoughtful preparation, and genuine hospitality
-              served from breakfast to dinner.
-            </p>
-            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="#breakfast" variant="accent" size="lg">
-                View Breakfast
-              </Button>
-              <Button href="#lunch" variant="secondary" size="lg">
-                View Lunch
-              </Button>
-            </div>
+      {/* Hero */}
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden pt-16">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 text-center text-brand-cream px-4 max-w-4xl mx-auto">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-oat mb-4">
+            Wolverine, Michigan
+          </p>
+          <h1 className="font-serif text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+            Our Menu
+          </h1>
+          <p className="font-sans text-xl md:text-2xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed">
+            Farm-fresh ingredients, house-made recipes, and genuine Northern Michigan hospitality.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {MENU_DATA.map((cat) => (
+              <a
+                key={cat.category}
+                href={`#${categoryId(cat.category)}`}
+                className="font-sans text-sm font-medium px-5 py-2 rounded-full border border-brand-cream/50 text-brand-cream hover:bg-brand-cream hover:text-brand-charcoal transition-all duration-200"
+              >
+                {CATEGORY_ICONS[cat.category]} {cat.category}
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Menu Categories - Storefront Style */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {MENU_DATA.map((category, index) => (
-            <div
-              key={category.category}
-              id={category.category.toLowerCase().replace(/\s+/g, '')}
-              className={index > 0 ? "mt-32" : ""}
+      {/* Sticky Category Nav */}
+      <nav className="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-sm border-b border-brand-oat shadow-soft">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2 overflow-x-auto">
+          {MENU_DATA.map((cat) => (
+            <a
+              key={cat.category}
+              href={`#${categoryId(cat.category)}`}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full font-sans text-sm font-medium whitespace-nowrap border border-brand-oat text-brand-charcoal hover:bg-brand-green hover:text-brand-cream hover:border-brand-green transition-all duration-200"
             >
-              {/* Category Header */}
-              <div className="mb-16 text-center">
-                <div className="mx-auto max-w-2xl">
-                  <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage">
-                    {category.category}
-                  </p>
-                  <h2 className="mt-3 text-4xl font-semibold text-brand-charcoal sm:text-5xl">
-                    {category.category}
-                  </h2>
-                  <p className="mt-4 text-lg leading-7 text-brand-charcoal/80">
-                    {category.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Menu Items Grid */}
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {category.items.map((item) => (
-                  <div
-                    key={item.name}
-                    className="group relative overflow-hidden rounded-[32px] border border-brand-oat bg-white p-8 shadow-soft transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-brand-charcoal group-hover:text-brand-green transition-colors">
-                          {item.name}
-                        </h3>
-                        <p className="mt-2 text-sm leading-6 text-brand-charcoal/70">
-                          {item.description}
-                        </p>
-                      </div>
-                      <div className="ml-4 flex-shrink-0">
-                        <span className="text-2xl font-bold text-brand-green">
-                          ${item.price}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Decorative element */}
-                    <div className="mt-6 flex items-center justify-between">
-                      <div className="h-px flex-1 bg-gradient-to-r from-brand-oat to-transparent" />
-                      <div className="mx-4 rounded-full bg-brand-green/10 px-3 py-1">
-                        <span className="text-xs font-medium text-brand-green uppercase tracking-wide">
-                          Local
-                        </span>
-                      </div>
-                      <div className="h-px flex-1 bg-gradient-to-l from-brand-oat to-transparent" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+              <span>{CATEGORY_ICONS[cat.category]}</span>
+              <span>{cat.category}</span>
+            </a>
           ))}
         </div>
-      </section>
+      </nav>
 
-      {/* Storefront CTA */}
-      <section className="bg-brand-charcoal py-24">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-semibold tracking-tight text-brand-cream sm:text-5xl">
-              Ready to Experience Our Menu?
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-xl leading-8 text-brand-cream/80">
-              Visit us in Wolverine, Michigan for farm-to-table dining that celebrates
-              local ingredients and genuine hospitality.
-            </p>
-            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="tel:2314182290" variant="accent" size="lg">
-                Call 231-418-2290
-              </Button>
-              <Button
-                href="https://www.google.com/maps/search/?api=1&query=4853+Webb+Rd+Wolverine+Michigan+49799"
-                variant="secondary"
-                size="lg"
-                external
-              >
-                Get Directions
-              </Button>
+      {/* Menu Sections */}
+      {MENU_DATA.map((category, catIndex) => (
+        <section
+          key={category.category}
+          id={categoryId(category.category)}
+          className={`py-24 px-4 ${catIndex % 2 === 0 ? "bg-brand-cream" : "bg-[#f5ede3]"}`}
+        >
+          <div className="max-w-7xl mx-auto">
+            {/* Category Header */}
+            <div className="text-center mb-16">
+              <span className="text-5xl block mb-4">{CATEGORY_ICONS[category.category]}</span>
+              <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-3">
+                {category.description}
+              </p>
+              <h2 className="font-serif text-5xl font-bold text-brand-charcoal mb-5">
+                {category.category}
+              </h2>
+              <div className="flex items-center justify-center gap-4">
+                <div className="h-px w-24 bg-brand-oat" />
+                <div className="w-2 h-2 rounded-full bg-brand-green" />
+                <div className="h-px w-24 bg-brand-oat" />
+              </div>
             </div>
+
+            {/* Items Grid */}
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {category.items.map((item, itemIndex) => (
+                <div
+                  key={item.name}
+                  className="group bg-white rounded-2xl border border-brand-oat shadow-soft hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
+                >
+                  {/* Badge strip */}
+                  <div className="bg-brand-green/10 border-b border-brand-oat px-6 py-2.5 flex items-center justify-between">
+                    <span className="font-sans text-xs font-semibold uppercase tracking-widest text-brand-green">
+                      {getBadge(itemIndex)}
+                    </span>
+                    <span className="text-brand-green/40 text-lg">✦</span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-serif text-xl font-bold text-brand-charcoal group-hover:text-brand-green transition-colors mb-3 leading-snug">
+                      {item.name}
+                    </h3>
+                    <p className="font-sans text-sm leading-relaxed text-brand-charcoal/70 flex-1">
+                      {item.description}
+                    </p>
+                    <div className="flex items-center justify-between pt-5 mt-5 border-t border-brand-oat">
+                      <span className="font-sans text-xs uppercase tracking-wider text-brand-sage">
+                        {category.category}
+                      </span>
+                      <span className="font-serif text-lg font-bold text-brand-green">
+                        {item.price}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+
+      {/* CTA */}
+      <section className="bg-brand-charcoal py-24 px-4">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-4">
+            Come Find Us
+          </p>
+          <h2 className="font-serif text-5xl font-bold text-brand-cream mb-6">
+            Come Dine With Us
+          </h2>
+          <p className="font-sans text-xl leading-8 text-brand-cream/80 mb-10">
+            Visit us in Wolverine, Michigan for farm-to-table dining that
+            celebrates local ingredients and genuine hospitality.
+          </p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Button href="tel:2314182290" variant="accent" size="lg">
+              Call 231-418-2290
+            </Button>
+            <Button
+              href="https://www.google.com/maps/search/?api=1&query=4853+Webb+Rd+Wolverine+Michigan+49799"
+              variant="secondary"
+              size="lg"
+              external
+            >
+              Get Directions
+            </Button>
           </div>
         </div>
       </section>

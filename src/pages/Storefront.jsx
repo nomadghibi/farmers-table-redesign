@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useCart } from "../context/CartContext";
 import { Button } from "../components/ui/Button";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Header } from "../components/layout/Header";
@@ -20,16 +21,26 @@ import chickenImage from "../assets/Farm-to-table heritage chicken advertisement
 import porkImage from "../assets/Pasture-raised pork from Serendipity Farms.png";
 import steaksImage from "../assets/Premium grass-fed steaks for sale.png";
 import trainImage from "../assets/Pasture to plate farmhouse still life.png";
+import vintageSignImage from "../assets/Vintage farmhouse diner sign print.png";
+import goldenHourImage from "../assets/Golden hour.png";
+import candleImage from "../assets/Farmhouse candles and seasonal charm.png";
+import saltPepperImage from "../assets/Farmhouse salt and pepper shakers.png";
+import farmToysImage from "../assets/Rustic farm toys on a wooden table.png";
+import stillLifeImage from "../assets/Rustic farm life still life scene.png";
+import toyBuggyImage from "../assets/Rustic farmhouse toy buggy vignette.png";
+import marketBasketImage from "../assets/Farmhouse market display with rustic charm.png";
 
 export function StorefrontPage() {
-  const [cart, setCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
+  const { addToCart, cartCount } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [addedIds, setAddedIds] = useState({});
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    setCartCount(cartCount + 1);
-    // In a real app, this would send to backend
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setAddedIds((prev) => ({ ...prev, [product.id]: true }));
+    setTimeout(() => {
+      setAddedIds((prev) => ({ ...prev, [product.id]: false }));
+    }, 1500);
   };
 
   // Create products with actual imported images
@@ -46,6 +57,15 @@ export function StorefrontPage() {
     "Farm-Fresh Eggs": eggsImage,
     "Heritage Chicken": chickenImage,
     "Pasture-Raised Pork": porkImage,
+    "Fresh Hay Candle": candleImage,
+    "Apple Orchard Candle": candleImage,
+    "Vanilla Farmhouse Candle": candleImage,
+    "Pine Woods Candle": candleImage,
+    "Farmhouse Salt & Pepper Shakers": saltPepperImage,
+    "Rustic Farm Toy Set": farmToysImage,
+    "Farm Life Still Life Print": stillLifeImage,
+    "Rustic Toy Buggy": toyBuggyImage,
+    "Farmhouse Market Gift Basket": marketBasketImage,
   };
 
   const productsWithImages = PRODUCTS.map((product) => ({
@@ -90,16 +110,25 @@ export function StorefrontPage() {
       {/* Brand Story + Experience Highlights */}
       <section className="py-24 px-4 bg-[radial-gradient(circle_at_top_left,rgba(178,94,45,0.22),transparent_25%),linear-gradient(180deg,#7e381b_0%,#3d1406_100%)] text-[#f3e2d0]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 rounded-[2rem] border border-[#a35e34]/50 bg-[#3c1b0d]/90 p-12 shadow-[0_40px_100px_-45px_rgba(0,0,0,0.9)] backdrop-blur-sm">
-            <SectionHeading className="text-[#f7e6d8]">
-              Our Heritage Story
-            </SectionHeading>
-            <p className="font-sans text-lg text-[#f7e1cd] leading-relaxed mb-6">
-              The Farmer's Table is more than a restaurant – it's a celebration of Wolverine's agricultural heritage and the hardworking families who make our community thrive. We believe in supporting local farmers, preserving traditional farming practices, and creating connections between our guests and the land that sustains us.
-            </p>
-            <p className="font-sans text-lg text-[#f7e1cd] leading-relaxed">
-              When you dine with us, you're not just enjoying a meal – you're participating in a story that spans generations, honoring the farmers, artisans, and community members who make northern Michigan's food culture so special.
-            </p>
+          <div className="mb-16 rounded-[2rem] border border-[#a35e34]/50 bg-[#3c1b0d]/90 p-12 shadow-[0_40px_100px_-45px_rgba(0,0,0,0.9)] backdrop-blur-sm flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 min-w-0">
+              <SectionHeading className="text-[#f7e6d8]">
+                Our Heritage Story
+              </SectionHeading>
+              <p className="font-sans text-lg text-[#f7e1cd] leading-relaxed mb-6">
+                The Farmer's Table is more than a restaurant – it's a celebration of Wolverine's agricultural heritage and the hardworking families who make our community thrive. We believe in supporting local farmers, preserving traditional farming practices, and creating connections between our guests and the land that sustains us.
+              </p>
+              <p className="font-sans text-lg text-[#f7e1cd] leading-relaxed">
+                When you dine with us, you're not just enjoying a meal – you're participating in a story that spans generations, honoring the farmers, artisans, and community members who make northern Michigan's food culture so special.
+              </p>
+            </div>
+            <div className="flex-shrink-0 w-full md:w-[420px] rounded-2xl overflow-hidden shadow-soft">
+              <img
+                src={farmFreshImage}
+                alt="Farm-fresh goodness at Farmer's Table"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {HIGHLIGHTS.map((highlight, index) => (
@@ -139,15 +168,13 @@ export function StorefrontPage() {
               ))}
             </nav>
             {cartCount > 0 && (
-              <div className="flex items-center gap-3 ml-4">
-                <div className="flex items-center gap-2 bg-brand-green text-brand-cream px-3 py-1.5 rounded-full text-sm font-medium">
-                  <span>🛒</span>
-                  <span>{cartCount}</span>
-                </div>
-                <Button variant="secondary" size="sm">
-                  View Cart
-                </Button>
-              </div>
+              <Link
+                to="/checkout"
+                className="ml-4 flex items-center gap-2 bg-brand-green text-brand-cream px-4 py-2 rounded-full font-sans text-sm font-semibold shadow-soft hover:bg-[#1e4a37] transition-all duration-200"
+              >
+                <span>🛒</span>
+                <span>{cartCount} · Checkout</span>
+              </Link>
             )}
           </div>
         </div>
@@ -188,13 +215,16 @@ export function StorefrontPage() {
                     <span className="font-sans text-xs uppercase tracking-wider text-brand-sage">
                       {product.category}
                     </span>
-                    <Button
-                      variant="primary"
-                      size="sm"
-                      onClick={() => addToCart(product)}
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className={`px-4 py-2 rounded-full font-sans text-sm font-semibold transition-all duration-200 ${
+                        addedIds[product.id]
+                          ? "bg-brand-sage text-brand-cream cursor-default"
+                          : "bg-brand-green text-brand-cream hover:bg-[#1e4a37] hover:-translate-y-0.5"
+                      }`}
                     >
-                      Add to Cart
-                    </Button>
+                      {addedIds[product.id] ? "Added ✓" : "Add to Cart"}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -203,96 +233,64 @@ export function StorefrontPage() {
         </div>
       </section>
 
-      {/* Contact Info */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <SectionHeading>
-            Visit Us
-          </SectionHeading>
-          <div className="bg-white rounded-2xl p-8 shadow-soft">
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div>
-                <h3 className="font-serif text-2xl font-semibold text-brand-charcoal mb-4">
-                  Location
-                </h3>
-                <p className="font-sans text-brand-charcoal mb-2">
-                  {BUSINESS_INFO.address}
-                </p>
-                <p className="font-sans text-brand-charcoal">
-                  {BUSINESS_INFO.city}, {BUSINESS_INFO.state} {BUSINESS_INFO.zip}
-                </p>
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl font-semibold text-brand-charcoal mb-4">
-                  Contact
-                </h3>
-                <p className="font-sans text-brand-charcoal mb-2">
-                  <a href={BUSINESS_INFO.phoneLink} className="hover:text-brand-green transition">
-                    {BUSINESS_INFO.phone}
-                  </a>
-                </p>
-                <p className="font-sans text-brand-charcoal">
-                  Breakfast served until {BUSINESS_INFO.breakfastUntil}
-                </p>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-serif text-2xl font-semibold text-brand-charcoal mb-4">
-                Hours
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 font-sans text-brand-charcoal">
-                {HOURS.map((hour) => (
-                  <div key={hour.day} className="flex justify-between">
-                    <span>{hour.day}</span>
-                    <span>{hour.time}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Local Roots Section */}
+      {/* Community Roots + Sign — Side by Side */}
       <section className="py-24 px-4 bg-[radial-gradient(circle_at_top_right,rgba(193,113,51,0.18),transparent_35%),linear-gradient(180deg,#7a2f18_0%,#3c1708_100%)] text-[#f2ddc8]">
-        <div className="max-w-4xl mx-auto text-center rounded-[2rem] border border-[#b07a52]/40 bg-[#3f1d11]/90 p-12 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
-          <SectionHeading className="text-[#f5e3cf]">
-            Deeply Rooted in Our Community
-          </SectionHeading>
-          <p className="font-sans text-lg leading-relaxed mb-8 text-[#f7e1cb]">
-            The Farmer's Table is more than a restaurant – it's a celebration of Wolverine's agricultural heritage and the hardworking families who make our community thrive. We believe in supporting local farmers, preserving traditional farming practices, and creating connections between our guests and the land that sustains us.
-          </p>
-          <p className="font-sans text-lg leading-relaxed text-[#f7e1cb]">
-            When you dine with us, you're not just enjoying a meal – you're participating in a story that spans generations, honoring the farmers, artisans, and community members who make northern Michigan's food culture so special.
-          </p>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 rounded-[2rem] border border-[#b07a52]/40 bg-[#3f1d11]/90 p-12 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
+          <div className="flex-1 min-w-0">
+            <SectionHeading className="text-[#f5e3cf]">
+              Deeply Rooted in Our Community
+            </SectionHeading>
+            <p className="font-sans text-lg leading-relaxed mb-8 text-[#f7e1cb]">
+              The Farmer's Table is more than a restaurant – it's a celebration of Wolverine's agricultural heritage and the hardworking families who make our community thrive. We believe in supporting local farmers, preserving traditional farming practices, and creating connections between our guests and the land that sustains us.
+            </p>
+            <p className="font-sans text-lg leading-relaxed text-[#f7e1cb]">
+              When you dine with us, you're not just enjoying a meal – you're participating in a story that spans generations, honoring the farmers, artisans, and community members who make northern Michigan's food culture so special.
+            </p>
+          </div>
+          <div className="flex-shrink-0 w-full md:w-[420px] rounded-2xl overflow-hidden shadow-soft">
+            <img
+              src={vintageSignImage}
+              alt="Vintage Farmer's Table diner sign"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
       {/* CTA Band */}
       <section className="py-20 px-4 bg-brand-charcoal text-brand-cream">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-4xl font-bold mb-8">
-            Ready to Experience Farm-to-Table Dining?
-          </h2>
-          <p className="font-sans text-xl mb-12 leading-relaxed">
-            Join us for an unforgettable meal crafted with love, served with warmth, and rooted in tradition.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button variant="accent" size="lg">
-              <a href={BUSINESS_INFO.mapsQuery} target="_blank" rel="noopener noreferrer">
-                Get Directions
-              </a>
-            </Button>
-            <Button variant="secondary" size="lg">
-              <a href={BUSINESS_INFO.phoneLink}>
-                Call Now
-              </a>
-            </Button>
-            <Link to="/menu">
-              <Button variant="primary" size="lg">
-                View Menu
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-shrink-0 w-full md:w-[420px] rounded-2xl overflow-hidden shadow-soft">
+            <img
+              src={goldenHourImage}
+              alt="Golden hour at Farmer's Table"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="flex-1 min-w-0">
+            <h2 className="font-serif text-4xl font-bold mb-8">
+              Ready to Experience Farm-to-Table Dining?
+            </h2>
+            <p className="font-sans text-xl mb-12 leading-relaxed">
+              Join us for an unforgettable meal crafted with love, served with warmth, and rooted in tradition.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Button variant="accent" size="lg">
+                <a href={BUSINESS_INFO.mapsQuery} target="_blank" rel="noopener noreferrer">
+                  Get Directions
+                </a>
               </Button>
-            </Link>
+              <Button variant="secondary" size="lg">
+                <a href={BUSINESS_INFO.phoneLink}>
+                  Call Now
+                </a>
+              </Button>
+              <Link to="/menu">
+                <Button variant="primary" size="lg">
+                  View Menu
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
