@@ -3,7 +3,7 @@ import { Footer } from "../components/layout/Footer";
 import { Button } from "../components/ui/Button";
 import { SEO } from "../components/util/SEO";
 import { MENU_DATA } from "../data/menu";
-import heroImage from "../assets/Biscuits and gravy menu design.png";
+import heroImage from "../assets/Farm fresh breakfast, rustic takeout vibe.png";
 import breakfastIcon from "../assets/Delicious morning sunrise breakfast scene.png";
 import lunchIcon from "../assets/Fresh lunch spread on a plate.png";
 import dinnerIcon from "../assets/Farm-to-table dinner at sunset.png";
