@@ -52,6 +52,8 @@ import grilledChickenSandwichImage from "../assets/Grilled chicken sandwich from
 import chickenWafflesImage from "../assets/Chicken and waffles Southern classic.png";
 import wingDingsImage from "../assets/Crispy wings bold flavors good times.png";
 import phillySteakImage from "../assets/Serendipity Farms Philly steak sandwich.png";
+import reubenImage from "../assets/Vintage Reuben sandwich advertisement design.png";
+import hotBeefImage from "../assets/Hot beef sandwich with comfort sides.png";
 
 const ITEM_IMAGES = {
   "Biscuits & Gravy": biscuitsImage,
@@ -80,6 +82,8 @@ const ITEM_IMAGES = {
   "Chicken and Waffles": chickenWafflesImage,
   "Chicken Wing-dings": wingDingsImage,
   "Philly Steak & Cheese": phillySteakImage,
+  "Reuben Sandwich": reubenImage,
+  "Hot Beef Sandwich": hotBeefImage,
   "Pancakes or French Toast": pancakesImage,
   "Breakfast Sandwich": breakfastSandwichImage,
   "Fresh Fruit Plate": freshFruitImage,
