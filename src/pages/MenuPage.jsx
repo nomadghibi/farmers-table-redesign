@@ -26,6 +26,7 @@ import ribEyeImage from "../assets/Rib Eye marbled steak farm dinner.png";
 import chickenCordonBleuImage from "../assets/Chicken Cordon Bleu comfort food dinner.png";
 import grilledWalleyeImage from "../assets/Grilled Walleye Great Lakes fresh sides.png";
 import muffinImage from "../assets/Serendipity Farms muffin advertisement.png";
+import cakeByTheSliceImage from "../assets/Cake by the Slice sweet moments farm.png";
 import fishImage from "../assets/Pan-seared fish of the day.png";
 import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
 import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
@@ -155,6 +156,7 @@ const ITEM_IMAGES = {
   "Bread Pudding": breadPuddingImage,
   "Cookie Assortment": cookieImage,
   "Muffin": muffinImage,
+  "Cake by the Slice": cakeByTheSliceImage,
 };
 import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.png";
 import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.png";
