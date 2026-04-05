@@ -54,6 +54,18 @@ import wingDingsImage from "../assets/Crispy wings bold flavors good times.png";
 import phillySteakImage from "../assets/Serendipity Farms Philly steak sandwich.png";
 import reubenImage from "../assets/Vintage Reuben sandwich advertisement design.png";
 import hotBeefImage from "../assets/Hot beef sandwich with comfort sides.png";
+import monteCristoImage from "../assets/Comfort food from Serendipity Farms.png";
+import chickenTenderBasketImage from "../assets/Serendipity Farms chicken tender basket.png";
+import loadedGrilledCheeseImage from "../assets/Loaded grilled cheese goodness.png";
+import bltImage from "../assets/Serendipity Farms classic BLT sandwich.png";
+import fishSandwichImage from "../assets/Farmhouse fish sandwich delight.png";
+import bleuCheeseBurgerImage from "../assets/Serendipity Farms burger indulgence.png";
+import oliveBurgerImage from "../assets/Serendipity Farms burger and fries.png";
+import frenchFriesImage from "../assets/Farmhouse fries fresh from the farm.png";
+import deepFriedMushroomsImage from "../assets/Serendipity Farms deep fried mushrooms.png";
+import zucchiniFriesImage from "../assets/Farm-fresh fried favorites menu.png";
+import sweetPotatoFriesImage from "../assets/Rustic farm sweet potato fries ad.png";
+import onionRingsImage from "../assets/Farm-fresh onion rings delight.png";
 
 const ITEM_IMAGES = {
   "Biscuits & Gravy": biscuitsImage,
@@ -84,6 +96,18 @@ const ITEM_IMAGES = {
   "Philly Steak & Cheese": phillySteakImage,
   "Reuben Sandwich": reubenImage,
   "Hot Beef Sandwich": hotBeefImage,
+  "Monte Cristo": monteCristoImage,
+  "Chicken Tender Basket": chickenTenderBasketImage,
+  "Loaded Grilled Cheese": loadedGrilledCheeseImage,
+  "BLT": bltImage,
+  "Walleye or Cod Fish Sandwich": fishSandwichImage,
+  "Bleu Cheese Burger": bleuCheeseBurgerImage,
+  "Olive Burger": oliveBurgerImage,
+  "French Fries": frenchFriesImage,
+  "Deep Fried Mushrooms": deepFriedMushroomsImage,
+  "Zucchini Fries": zucchiniFriesImage,
+  "Sweet Potato Fries": sweetPotatoFriesImage,
+  "Onion Rings": onionRingsImage,
   "Pancakes or French Toast": pancakesImage,
   "Breakfast Sandwich": breakfastSandwichImage,
   "Fresh Fruit Plate": freshFruitImage,

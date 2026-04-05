@@ -39,6 +39,13 @@ export function CTASection() {
               Get Directions
             </a>
           </div>
+
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-brand-cream/20 bg-brand-cream/5 px-6 py-3">
+            <span className="h-2 w-2 rounded-full bg-brand-sage animate-pulse" />
+            <span className="font-sans text-sm text-brand-cream/70">
+              Coming soon on <span className="font-semibold text-brand-cream">Uber Eats</span> &amp; <span className="font-semibold text-brand-cream">DoorDash</span>
+            </span>
+          </div>
         </div>
       </div>
     </section>

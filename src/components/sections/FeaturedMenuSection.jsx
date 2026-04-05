@@ -1,6 +1,21 @@
 import { Link } from "react-router-dom";
 import { MenuCard } from "../ui/MenuCard";
 import { FEATURED_ITEMS } from "../../data/siteContent";
+import biscuitsImage from "../../assets/Biscuits and gravy menu design.png";
+import eggsBenedictImage from "../../assets/Eggs Benedict cozy delight.png";
+import smashBurgerImage from "../../assets/Smash burger with local ingredients.png";
+import friedChickenImage from "../../assets/Farm-fresh fried chicken delight.png";
+import steakImage from "../../assets/Steak dinner with local goodness.png";
+import pieImage from "../../assets/Freshly baked pies with love.png";
+
+const FEATURED_IMAGES = {
+  "Biscuits & Gravy": biscuitsImage,
+  "Eggs Benedict": eggsBenedictImage,
+  "Smash Burger": smashBurgerImage,
+  "Serendipity Farms Fried Chicken": friedChickenImage,
+  "New York Strip Steak": steakImage,
+  "Fresh Baked Pie": pieImage,
+};
 
 export function FeaturedMenuSection() {
   return (
@@ -30,6 +45,7 @@ export function FeaturedMenuSection() {
               name={item.title}
               price={item.price}
               description={item.description}
+              image={FEATURED_IMAGES[item.title]}
             />
           ))}
         </div>
