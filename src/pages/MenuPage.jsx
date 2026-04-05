@@ -171,7 +171,7 @@ const ITEM_IMAGES = {
 import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.png";
 import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.png";
 import dinnerIcon from "../assets/dinner-section-icon.png";
-import bakeryIcon from "../assets/Bakery & desserts icon.png";
+import bakeryIcon from "../assets/Bakery logo with lattice pie.png";
 import beveragesIcon from "../assets/A variety of refreshing beverages.png";
 import sidesIcon from "../assets/Homemade chips and vintage farm style.png";
 import heartyClassicsIcon from "../assets/Farmhouse breakfast at sunrise.png";
