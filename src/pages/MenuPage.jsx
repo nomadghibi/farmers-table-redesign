@@ -153,6 +153,7 @@ function categoryId(name) {
 export function MenuPage() {
   const [lightbox, setLightbox] = useState(null);
 
+
   return (
     <div className="min-h-screen bg-brand-cream text-brand-charcoal">
       {/* Lightbox */}
@@ -217,7 +218,7 @@ export function MenuPage() {
         <section
           key={category.category}
           id={categoryId(category.category)}
-          className={`py-24 px-4 ${catIndex % 2 === 0 ? "bg-brand-cream" : "bg-[#f5ede3]"}`}
+          className={`py-24 px-4 scroll-mt-20 ${catIndex % 2 === 0 ? "bg-brand-cream" : "bg-[#f5ede3]"}`}
         >
           <div className="max-w-7xl mx-auto">
             {/* Category Header */}
