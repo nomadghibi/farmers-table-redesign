@@ -33,6 +33,7 @@ import freshFriedPieImage from "../assets/Fried pies made with love.png";
 import glutenFreeCakeImage from "../assets/Gluten-free indulgence at Serendipity Farms.png";
 import specialtyCoffeeImage from "../assets/Rustic charm at Serendipity Farms.png";
 import hotTeaImage from "../assets/Rustic charm of Serendipity Farms tea.png";
+import freshLemonadeImage from "../assets/Fresh squeezed summer lemonade delights.png";
 import fishImage from "../assets/Pan-seared fish of the day.png";
 import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
 import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
@@ -169,6 +170,7 @@ const ITEM_IMAGES = {
   "Gluten Free Flourless Cake": glutenFreeCakeImage,
   "Specialty Coffee": specialtyCoffeeImage,
   "Hot Tea Selection": hotTeaImage,
+  "Fresh Lemonade": freshLemonadeImage,
 };
 import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.png";
 import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.png";
