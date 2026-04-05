@@ -31,6 +31,7 @@ import freshBakedPieWholeImage from "../assets/Fresh Baked Pie Whole Serendipity
 import freshBakedPieSliceImage from "../assets/Fresh Baked Pie By the Slice Serendipity Farms.png";
 import freshFriedPieImage from "../assets/Fried pies made with love.png";
 import glutenFreeCakeImage from "../assets/Gluten-free indulgence at Serendipity Farms.png";
+import specialtyCoffeeImage from "../assets/Rustic charm at Serendipity Farms.png";
 import fishImage from "../assets/Pan-seared fish of the day.png";
 import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
 import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
@@ -165,6 +166,7 @@ const ITEM_IMAGES = {
   "Fresh Baked Pie — By the Slice": freshBakedPieSliceImage,
   "Fresh Fried Pie": freshFriedPieImage,
   "Gluten Free Flourless Cake": glutenFreeCakeImage,
+  "Specialty Coffee": specialtyCoffeeImage,
 };
 import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.png";
 import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.png";
