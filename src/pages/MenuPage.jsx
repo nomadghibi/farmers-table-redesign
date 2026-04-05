@@ -35,6 +35,7 @@ import specialtyCoffeeImage from "../assets/Rustic charm at Serendipity Farms.pn
 import hotTeaImage from "../assets/Rustic charm of Serendipity Farms tea.png";
 import freshLemonadeImage from "../assets/Fresh squeezed summer lemonade delights.png";
 import icedTeaImage from "../assets/Serendipity Farms iced tea poster.png";
+import freshJuiceImage from "../assets/Fresh farm-to-jar juice vibes.png";
 import fishImage from "../assets/Pan-seared fish of the day.png";
 import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
 import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
@@ -173,6 +174,7 @@ const ITEM_IMAGES = {
   "Hot Tea Selection": hotTeaImage,
   "Fresh Lemonade": freshLemonadeImage,
   "Iced Tea": icedTeaImage,
+  "Fresh Juice": freshJuiceImage,
 };
 import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.png";
 import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.png";
