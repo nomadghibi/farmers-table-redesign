@@ -19,6 +19,10 @@ import chickenSandwichImage from "../assets/Rustic chicken sandwich menu design.
 import potRoastImage from "../assets/Farmhouse pot roast with comfort and care.png";
 import friedChickenImage from "../assets/Farm-fresh fried chicken delight.png";
 import steakDinnerImage from "../assets/Steak dinner with local goodness.png";
+import grilledChickenBreastDinnerImage from "../assets/Grilled Chicken Breast Dinner savory hand-crafted.png";
+import slowRoastedRoastBeefImage from "../assets/Slow-Roasted Roast Beef fork-tender farm dinner.png";
+import porkChopWithApplesImage from "../assets/Pork Chop with Apples Michigan farm dinner.png";
+import ribEyeImage from "../assets/Rib Eye marbled steak farm dinner.png";
 import fishImage from "../assets/Pan-seared fish of the day.png";
 import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
 import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
@@ -66,6 +70,12 @@ import deepFriedMushroomsImage from "../assets/Serendipity Farms deep fried mush
 import zucchiniFriesImage from "../assets/Farm-fresh fried favorites menu.png";
 import sweetPotatoFriesImage from "../assets/Rustic farm sweet potato fries ad.png";
 import onionRingsImage from "../assets/Farm-fresh onion rings delight.png";
+import farmersSaladImage from "../assets/Farmers Salad country garden creation.png";
+import houseSaladImage from "../assets/House Salad garden fresh classic.png";
+import chickenCaesarSaladImage from "../assets/Chicken Caesar Salad farm to bowl classic.png";
+import dressingsImage from "../assets/Dressings house-crafted farm-fresh.png";
+import blackBeanBurgerImage from "../assets/Black Bean Burger hand-crafted original.png";
+import spicedSweetPotatoBurgerImage from "../assets/Spiced Sweet Potato Cranberry Burger.png";
 
 const ITEM_IMAGES = {
   "Biscuits & Gravy": biscuitsImage,
@@ -108,6 +118,12 @@ const ITEM_IMAGES = {
   "Zucchini Fries": zucchiniFriesImage,
   "Sweet Potato Fries": sweetPotatoFriesImage,
   "Onion Rings": onionRingsImage,
+  "Farmers Salad": farmersSaladImage,
+  "House Salad": houseSaladImage,
+  "Chicken Caesar Salad": chickenCaesarSaladImage,
+  "Dressings": dressingsImage,
+  "Black Bean Burger": blackBeanBurgerImage,
+  "Spiced Sweet Potato Cranberry Burger": spicedSweetPotatoBurgerImage,
   "Pancakes or French Toast": pancakesImage,
   "Breakfast Sandwich": breakfastSandwichImage,
   "Fresh Fruit Plate": freshFruitImage,
@@ -119,6 +135,10 @@ const ITEM_IMAGES = {
   "Pot Roast": potRoastImage,
   "Serendipity Farms Fried Chicken": friedChickenImage,
   "New York Strip Steak": steakDinnerImage,
+  "Grilled Chicken Breast Dinner": grilledChickenBreastDinnerImage,
+  "Slow-Roasted Roast Beef": slowRoastedRoastBeefImage,
+  "Pork Chop with Apples": porkChopWithApplesImage,
+  "Rib Eye": ribEyeImage,
   "Pan-Seared Fish of the Day": fishImage,
   "Braised Short Ribs": shortRibsImage,
   "Pork Chop Two Ways": porkChopImage,
@@ -132,7 +152,7 @@ const ITEM_IMAGES = {
 };
 import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.png";
 import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.png";
-import dinnerIcon from "../assets/Cozy farmhouse dinner at sunset.png";
+import dinnerIcon from "../assets/dinner-section-icon.png";
 import bakeryIcon from "../assets/Bakery & desserts icon.png";
 import beveragesIcon from "../assets/A variety of refreshing beverages.png";
 import sidesIcon from "../assets/Homemade chips and vintage farm style.png";
@@ -153,6 +173,10 @@ const CATEGORY_ICONS = {
   "Bakery Delights": "🥐",
   "Bakery & Desserts": "🥧",
   Beverages: "☕",
+};
+
+const CATEGORY_IMAGE_SIZES = {
+  Dinner: "mx-auto mb-6 w-64 h-64 rounded-full object-contain block",
 };
 
 const CATEGORY_IMAGES = {
@@ -255,7 +279,7 @@ export function MenuPage() {
                 <img
                   src={CATEGORY_IMAGES[category.category]}
                   alt={`${category.category} at The Farmer's Table`}
-                  className="mx-auto mb-6 w-48 h-48 rounded-full object-cover block"
+                  className={CATEGORY_IMAGE_SIZES[category.category] ?? "mx-auto mb-6 w-48 h-48 rounded-full object-cover block"}
                 />
               ) : (
                 <div className="mx-auto mb-6 w-48 h-48 rounded-full bg-brand-oat flex items-center justify-center text-6xl">
