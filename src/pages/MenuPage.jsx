@@ -176,7 +176,7 @@ const CATEGORY_ICONS = {
 };
 
 const CATEGORY_IMAGE_SIZES = {
-  Dinner: "mx-auto mb-6 w-64 h-64 rounded-full object-contain block",
+  Dinner: "mx-auto mb-6 w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full object-contain block",
 };
 
 const CATEGORY_IMAGES = {
@@ -245,10 +245,10 @@ export function MenuPage() {
           <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-oat mb-4">
             Wolverine, Michigan
           </p>
-          <h1 className="font-serif text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
             Our Menu
           </h1>
-          <p className="font-sans text-xl md:text-2xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-sans text-base sm:text-xl md:text-2xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed">
             Farm-fresh ingredients, house-made recipes, and genuine Northern Michigan hospitality.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -270,7 +270,7 @@ export function MenuPage() {
         <section
           key={category.category}
           id={categoryId(category.category)}
-          className={`py-24 px-4 scroll-mt-20 ${catIndex % 2 === 0 ? "bg-brand-cream" : "bg-[#f5ede3]"}`}
+          className={`py-12 sm:py-20 lg:py-24 px-4 scroll-mt-20 ${catIndex % 2 === 0 ? "bg-brand-cream" : "bg-[#f5ede3]"}`}
         >
           <div className="max-w-7xl mx-auto">
             {/* Category Header */}
@@ -279,17 +279,17 @@ export function MenuPage() {
                 <img
                   src={CATEGORY_IMAGES[category.category]}
                   alt={`${category.category} at The Farmer's Table`}
-                  className={CATEGORY_IMAGE_SIZES[category.category] ?? "mx-auto mb-6 w-48 h-48 rounded-full object-cover block"}
+                  className={CATEGORY_IMAGE_SIZES[category.category] ?? "mx-auto mb-6 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full object-cover block"}
                 />
               ) : (
-                <div className="mx-auto mb-6 w-48 h-48 rounded-full bg-brand-oat flex items-center justify-center text-6xl">
+                <div className="mx-auto mb-6 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full bg-brand-oat flex items-center justify-center text-4xl sm:text-6xl">
                   {CATEGORY_ICONS[category.category]}
                 </div>
               )}
               <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-3">
                 {category.description}
               </p>
-              <h2 className="font-serif text-5xl font-bold text-brand-charcoal mb-5">
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-charcoal mb-5">
                 {category.category}
               </h2>
               <div className="flex items-center justify-center gap-4">
@@ -309,7 +309,7 @@ export function MenuPage() {
                   {/* Item image if available */}
                   {ITEM_IMAGES[item.name] && (
                     <div
-                      className="relative h-72 overflow-hidden cursor-zoom-in"
+                      className="relative h-48 sm:h-60 md:h-72 overflow-hidden cursor-zoom-in"
                       onClick={() => setLightbox({ src: ITEM_IMAGES[item.name], alt: item.name })}
                     >
                       <img
@@ -360,10 +360,10 @@ export function MenuPage() {
           <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-4">
             Come Find Us
           </p>
-          <h2 className="font-serif text-5xl font-bold text-brand-cream mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-cream mb-6">
             Come Dine With Us
           </h2>
-          <p className="font-sans text-xl leading-8 text-brand-cream/80 mb-10">
+          <p className="font-sans text-base sm:text-xl leading-8 text-brand-cream/80 mb-10">
             Visit us in Wolverine, Michigan for farm-to-table dining that
             celebrates local ingredients and genuine hospitality.
           </p>

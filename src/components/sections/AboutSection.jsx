@@ -36,7 +36,7 @@ export function AboutSection() {
             <img
               src={goldenHourImage}
               alt="Golden hour farm scene"
-              className="h-80 w-full object-cover"
+              className="h-52 sm:h-64 lg:h-80 w-full object-cover"
             />
           </div>
 

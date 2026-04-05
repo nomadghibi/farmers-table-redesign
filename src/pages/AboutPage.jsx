@@ -89,10 +89,10 @@ export function AboutPage() {
           <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-oat mb-4">
             Our Story
           </p>
-          <h1 className="font-serif text-6xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
             Rooted in Wolverine.<br className="hidden md:block" /> Guided by Flavor & Community.
           </h1>
-          <p className="font-sans text-xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-sans text-base sm:text-xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed">
             A warm, local restaurant built around thoughtful ingredients, genuine hospitality, and a deep respect for Michigan's farms.
           </p>
         </div>

@@ -12,7 +12,7 @@ export function VisitUsSection() {
           <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-[#c9a07a] mb-3">
             Find Us
           </p>
-          <h2 className="font-serif text-5xl font-bold text-[#f7e6d8] mb-5">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7e6d8] mb-5">
             Join Us in Wolverine, Michigan
           </h2>
           <div className="flex items-center justify-center gap-4">
@@ -26,13 +26,13 @@ export function VisitUsSection() {
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
 
           {/* Google Map */}
-          <div className="rounded-2xl overflow-hidden shadow-soft min-h-[420px]">
+          <div className="rounded-2xl overflow-hidden shadow-soft min-h-[280px] sm:min-h-[420px]">
             <iframe
               title="The Farmer's Table location"
               src="https://maps.google.com/maps?q=4853+Webb+Rd,Wolverine,Michigan,49799&hl=en&z=14&output=embed"
               width="100%"
               height="100%"
-              style={{ minHeight: "420px", border: 0, display: "block" }}
+              style={{ minHeight: "280px", border: 0, display: "block" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -40,7 +40,7 @@ export function VisitUsSection() {
           </div>
 
           {/* Info panel */}
-          <div className="bg-[#3c1b0d]/90 rounded-2xl border border-[#a35c2f] p-10 shadow-soft flex flex-col justify-between gap-8">
+          <div className="bg-[#3c1b0d]/90 rounded-2xl border border-[#a35c2f] p-6 sm:p-8 lg:p-10 shadow-soft flex flex-col justify-between gap-8">
 
             {/* Address & Contact */}
             <div className="grid sm:grid-cols-2 gap-6">

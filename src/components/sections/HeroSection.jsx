@@ -11,19 +11,19 @@ export function HeroSection() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
 
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 py-32 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 py-20 sm:py-32 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-oat/50 bg-brand-cream/90 px-4 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.28em] text-brand-green shadow-sm backdrop-blur-sm mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-green inline-block" />
             Farm-Fresh · Local · Handcrafted
           </span>
 
-          <h1 className="font-serif text-6xl font-bold leading-tight tracking-tight text-brand-cream sm:text-7xl lg:text-8xl mb-6">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-8xl font-bold leading-tight tracking-tight text-brand-cream mb-6">
             Farm-to-Table<br />Dining in<br />
             <span className="text-brand-oat">Wolverine, MI</span>
           </h1>
 
-          <p className="font-sans text-xl leading-relaxed text-brand-cream/85 max-w-xl mb-10">
+          <p className="font-sans text-base sm:text-xl leading-relaxed text-brand-cream/85 max-w-xl mb-10">
             Fresh local ingredients, warm hospitality, and meals made with care — from breakfast to dinner.
           </p>
 

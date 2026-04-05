@@ -75,10 +75,10 @@ export function SerendipityFarmsPage() {
           <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-oat mb-4">
             Our Farm Partner · Wolverine, Michigan
           </p>
-          <h1 className="font-serif text-7xl md:text-8xl font-bold mb-6 tracking-tight leading-tight">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-tight">
             Serendipity<br />Farms
           </h1>
-          <p className="font-sans text-xl md:text-2xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="font-sans text-base sm:text-xl md:text-2xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed mb-10">
             Pasture-raised meats, farm-fresh eggs, and a commitment to natural farming that feeds everything we put on your plate.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

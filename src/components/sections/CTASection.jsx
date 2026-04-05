@@ -17,10 +17,10 @@ export function CTASection() {
           <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-4">
             Breakfast · Lunch · Dinner · Bakery · Desserts
           </p>
-          <h2 className="font-serif text-5xl font-bold leading-tight mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6">
             A Warm, Farm-Inspired Dining Experience
           </h2>
-          <p className="font-sans text-xl leading-relaxed text-brand-cream/80 mb-10">
+          <p className="font-sans text-base sm:text-xl leading-relaxed text-brand-cream/80 mb-10">
             For locals, families, and travelers alike — a place where every meal feels like coming home.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">

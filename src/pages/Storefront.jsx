@@ -90,10 +90,10 @@ export function StorefrontPage() {
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center text-brand-cream px-4">
-          <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight">
             Welcome to The Farmer's Table
           </h1>
-          <p className="font-sans text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-sans text-base sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed">
             Experience the warmth of farm-to-table dining in the heart of Wolverine, Michigan
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -110,7 +110,7 @@ export function StorefrontPage() {
       {/* Brand Story + Experience Highlights */}
       <section className="py-24 px-4 bg-[radial-gradient(circle_at_top_left,rgba(178,94,45,0.22),transparent_25%),linear-gradient(180deg,#7e381b_0%,#3d1406_100%)] text-[#f3e2d0]">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-16 rounded-[2rem] border border-[#a35e34]/50 bg-[#3c1b0d]/90 p-12 shadow-[0_40px_100px_-45px_rgba(0,0,0,0.9)] backdrop-blur-sm flex flex-col md:flex-row items-center gap-12">
+          <div className="mb-16 rounded-[2rem] border border-[#a35e34]/50 bg-[#3c1b0d]/90 p-6 sm:p-8 md:p-12 shadow-[0_40px_100px_-45px_rgba(0,0,0,0.9)] backdrop-blur-sm flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 min-w-0">
               <SectionHeading className="text-[#f7e6d8]">
                 Our Heritage Story
@@ -200,11 +200,11 @@ export function StorefrontPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-start mb-2">
                     <h3 className="font-serif text-xl font-semibold text-brand-charcoal">
                       {product.name}
                     </h3>
-                    <span className="font-sans text-lg font-bold text-brand-green">
+                    <span className="font-sans text-lg font-bold text-brand-green sm:ml-2 shrink-0">
                       ${product.price}
                     </span>
                   </div>
