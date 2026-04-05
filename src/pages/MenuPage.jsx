@@ -31,7 +31,7 @@ import fishImage from "../assets/Pan-seared fish of the day.png";
 import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
 import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
 import vegetarianImage from "../assets/Vegetarian feast on a farmhouse menu.png";
-import pieImage from "../assets/Freshly baked pies with love.png";
+import pieImage from "../assets/Fresh baked pies from Serendipity Farms.png";
 import cakeImage from "../assets/Chocolate layer cake with farmhouse charm.png";
 import tartImage from "../assets/Seasonal fruit tart and fresh flavors.png";
 import cinnamonRollImage from "../assets/Rustic cinnamon roll bakery advertisement.png";
