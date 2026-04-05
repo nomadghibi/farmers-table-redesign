@@ -24,6 +24,7 @@ import slowRoastedRoastBeefImage from "../assets/Slow-Roasted Roast Beef fork-te
 import porkChopWithApplesImage from "../assets/Pork Chop with Apples Michigan farm dinner.png";
 import ribEyeImage from "../assets/Rib Eye marbled steak farm dinner.png";
 import chickenCordonBleuImage from "../assets/Chicken Cordon Bleu comfort food dinner.png";
+import grilledWalleyeImage from "../assets/Grilled Walleye Great Lakes fresh sides.png";
 import fishImage from "../assets/Pan-seared fish of the day.png";
 import shortRibsImage from "../assets/Braised short ribs with root vegetables.png";
 import porkChopImage from "../assets/Farm-to-table pork chop dinner.png";
@@ -141,6 +142,7 @@ const ITEM_IMAGES = {
   "Pork Chop with Apples": porkChopWithApplesImage,
   "Rib Eye": ribEyeImage,
   "Chicken Cordon Bleu": chickenCordonBleuImage,
+  "Grilled Walleye": grilledWalleyeImage,
   "Pan-Seared Fish of the Day": fishImage,
   "Braised Short Ribs": shortRibsImage,
   "Pork Chop Two Ways": porkChopImage,
