@@ -195,7 +195,7 @@ const CATEGORY_ICONS = {
 
 const CATEGORY_IMAGE_SIZES = {
   Dinner: "mx-auto mb-6 w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full object-contain block",
-  "Bakery & Desserts": "mx-auto mb-6 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-contain block",
+  "Bakery & Desserts": "mx-auto mb-3 w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 object-contain block",
 };
 
 const CATEGORY_IMAGES = {
