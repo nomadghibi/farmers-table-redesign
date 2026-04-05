@@ -182,6 +182,7 @@ import breakfastIcon from "../assets/Farmhouse breakfast delights emblem.webp";
 import lunchIcon from "../assets/Vintage lunch plate with farmhouse backdrop.webp";
 import dinnerIcon from "../assets/dinner-section-icon.webp";
 import bakeryIcon from "../assets/Bakery logo with lattice pie.webp";
+import bakeryDelightsIcon from "../assets/Bakery delights logo design.webp";
 import beveragesIcon from "../assets/A variety of refreshing beverages.webp";
 import sidesIcon from "../assets/Homemade chips and vintage farm style.webp";
 import heartyClassicsIcon from "../assets/Farmhouse breakfast at sunrise.webp";
@@ -206,6 +207,7 @@ const CATEGORY_ICONS = {
 const CATEGORY_IMAGE_SIZES = {
   Dinner: "mx-auto mb-6 w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 rounded-full object-contain block",
   "Bakery & Desserts": "mx-auto mb-3 w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 object-contain block",
+  "Bakery Delights": "mx-auto mb-3 w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 object-contain block",
 };
 
 const CATEGORY_IMAGES = {
@@ -213,6 +215,7 @@ const CATEGORY_IMAGES = {
   Lunch: lunchIcon,
   Dinner: dinnerIcon,
   "Bakery & Desserts": bakeryIcon,
+  "Bakery Delights": bakeryDelightsIcon,
   Beverages: beveragesIcon,
   Sides: sidesIcon,
   "Hearty Classics": heartyClassicsIcon,
