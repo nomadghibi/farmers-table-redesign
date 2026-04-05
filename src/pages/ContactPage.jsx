@@ -35,7 +35,7 @@ export function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-brand-cream">
       <SEO
         title="Contact Us"
         description="Get in touch with The Farmer's Table in Wolverine, Michigan. Call us or fill out our contact form and we'll respond within 24 hours."
@@ -44,12 +44,15 @@ export function ContactPage() {
       <Header />
 
       {/* Hero */}
-      <section className="bg-emerald-950 py-16">
+      <section className="bg-brand-charcoal py-16">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <p className="font-sans text-sm font-semibold uppercase tracking-[0.28em] text-brand-sage mb-3">
+            Reach Out
+          </p>
+          <h1 className="font-serif text-4xl font-bold tracking-tight text-brand-cream md:text-5xl">
             Get in Touch
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-emerald-50">
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-brand-cream/70">
             Have questions about our menu, hours, or special events? We'd love
             to hear from you.
           </p>
@@ -70,12 +73,12 @@ export function ContactPage() {
               />
 
               {submitted ? (
-                <div className="rounded-[28px] border border-emerald-200 bg-emerald-50 p-8 text-center">
+                <div className="rounded-[28px] border border-brand-oat bg-brand-green/10 p-8 text-center">
                   <div className="mb-4 text-5xl">✓</div>
-                  <h3 className="text-2xl font-bold text-emerald-900">
+                  <h3 className="text-2xl font-bold text-brand-green">
                     Thank you!
                   </h3>
-                  <p className="mt-2 text-emerald-700">
+                  <p className="mt-2 text-brand-charcoal/70">
                     We've received your message and will respond soon.
                   </p>
                 </div>
@@ -95,7 +98,7 @@ export function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/20"
                       placeholder="John Doe"
                     />
                   </div>
@@ -114,7 +117,7 @@ export function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/20"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -132,7 +135,7 @@ export function ContactPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/20"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -151,14 +154,14 @@ export function ContactPage() {
                       onChange={handleChange}
                       required
                       rows="5"
-                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+                      className="mt-2 w-full rounded-lg border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/20"
                       placeholder="Tell us what you'd like to know..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full rounded-full bg-emerald-900 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-800"
+                    className="w-full rounded-full bg-brand-green px-6 py-3.5 text-sm font-semibold text-brand-cream transition hover:bg-[#1e4a37]"
                   >
                     Send Message
                   </button>
@@ -175,25 +178,25 @@ export function ContactPage() {
                 className="mb-8 text-left md:text-left"
               />
 
-              <div className="rounded-[28px] border border-stone-200 bg-white p-8 shadow-sm">
-                <h3 className="text-lg font-bold text-stone-900">Call Us</h3>
+              <div className="rounded-[28px] border border-brand-oat bg-white p-8 shadow-soft">
+                <h3 className="text-lg font-bold text-brand-charcoal">Call Us</h3>
                 <a
                   href={BUSINESS_INFO.phoneLink}
-                  className="mt-3 block text-2xl font-bold text-emerald-900 hover:text-emerald-800"
+                  className="mt-3 block text-2xl font-bold text-brand-green hover:text-[#1e4a37]"
                 >
                   {BUSINESS_INFO.phone}
                 </a>
-                <p className="mt-2 text-stone-600">
+                <p className="mt-2 text-brand-charcoal/60">
                   Monday – Sunday, during business hours
                 </p>
               </div>
 
-              <div className="rounded-[28px] border border-stone-200 bg-white p-8 shadow-sm">
-                <h3 className="text-lg font-bold text-stone-900">Visit Us</h3>
-                <p className="mt-3 text-lg font-semibold text-stone-900">
+              <div className="rounded-[28px] border border-brand-oat bg-white p-8 shadow-soft">
+                <h3 className="text-lg font-bold text-brand-charcoal">Visit Us</h3>
+                <p className="mt-3 text-lg font-semibold text-brand-charcoal">
                   {BUSINESS_INFO.address}
                 </p>
-                <p className="mt-1 text-stone-600">
+                <p className="mt-1 text-brand-charcoal/60">
                   {BUSINESS_INFO.city}, {BUSINESS_INFO.state}{" "}
                   {BUSINESS_INFO.zip}
                 </p>
@@ -208,25 +211,25 @@ export function ContactPage() {
                 </Button>
               </div>
 
-              <div className="rounded-[28px] border border-stone-200 bg-emerald-50 p-8">
-                <h3 className="text-lg font-bold text-emerald-900">
+              <div className="rounded-[28px] border border-brand-oat bg-brand-green/10 p-8">
+                <h3 className="text-lg font-bold text-brand-charcoal">
                   Hours of Operation
                 </h3>
                 <div className="mt-4 space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="font-medium text-emerald-900">Mon</span>
-                    <span className="text-emerald-700">8:00 AM – 7:00 PM</span>
+                    <span className="font-medium text-brand-charcoal">Mon</span>
+                    <span className="text-brand-charcoal/70">8:00 AM – 7:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-medium text-emerald-900">Tue-Wed</span>
-                    <span className="text-emerald-700">8:00 AM – 3:00 PM</span>
+                    <span className="font-medium text-brand-charcoal">Tue–Wed</span>
+                    <span className="text-brand-charcoal/70">8:00 AM – 3:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-medium text-emerald-900">Thu-Sun</span>
-                    <span className="text-emerald-700">8:00 AM – 7:00 PM</span>
+                    <span className="font-medium text-brand-charcoal">Thu–Sun</span>
+                    <span className="text-brand-charcoal/70">8:00 AM – 7:00 PM</span>
                   </div>
                 </div>
-                <p className="mt-4 text-xs text-emerald-700">
+                <p className="mt-4 text-xs text-brand-charcoal/60">
                   Breakfast served until noon daily
                 </p>
               </div>

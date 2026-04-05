@@ -12,6 +12,7 @@ export const BUSINESS_INFO = {
     "https://www.google.com/maps/search/?api=1&query=4853+Webb+Rd+Wolverine+Michigan+49799",
   breakfastUntil: "Noon",
   year: 2026,
+  facebook: "https://www.facebook.com/61554939519461/reviews/",
 };
 
 export const HIGHLIGHTS = [
@@ -256,4 +257,5 @@ export const NAV_LINKS = [
   { label: "Serendipity Farms", href: "/serendipity-farms" },
   { label: "Visit Us", href: "/#visit" },
   { label: "Storefront", href: "/storefront" },
+  { label: "Contact", href: "/contact" },
 ];

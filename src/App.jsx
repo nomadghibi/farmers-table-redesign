@@ -7,6 +7,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { StorefrontPage } from "./pages/Storefront";
 import { SerendipityFarmsPage } from "./pages/SerendipityFarmsPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
+import { ContactPage } from "./pages/ContactPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/storefront" element={<StorefrontPage />} />
           <Route path="/serendipity-farms" element={<SerendipityFarmsPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </Router>
     </CartProvider>
