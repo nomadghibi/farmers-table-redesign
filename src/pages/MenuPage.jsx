@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { Button } from "../components/ui/Button";
@@ -30,6 +31,27 @@ import breadPuddingImage from "../assets/Comforting bread pudding delight.png";
 import cookieImage from "../assets/Freshly baked cookie assortment.png";
 import cornedBeefHashImage from "../assets/Farmhouse corned beef hash delight.png";
 import omeletImage from "../assets/Egg-ceptional omelets and farm freshness.png";
+import taylorHamImage from "../assets/Rustic breakfast feast advertisement.png";
+import campfireSkilletImage from "../assets/Campfire skillet breakfast adventure.png";
+import spicySkilletImage from "../assets/Farm-fresh spicy skillet breakfast scramble.png";
+import cornedBeefHashSkilletImage from "../assets/Farmhouse corned beef hash skillet.png";
+import loadedSkilletImage from "../assets/Loaded skillet breakfast feast.png";
+import veggieSkilletImage from "../assets/Farmhouse veggie skillet breakfast poster.png";
+import blueberryPancakesImage from "../assets/Blueberry or chocolate chip pancakes.png";
+import pancakesWithMeatImage from "../assets/Hearty farmhouse pancake breakfast.png";
+import frenchToastImage from "../assets/Belgian waffle with farm-fresh toppings.png";
+import frenchToastImage2 from "../assets/Farm-fresh French toast breakfast delight.png";
+import farmhouseBreakfastImage from "../assets/Farmhouse breakfast goodness on the table.png";
+import steakEggsImage from "../assets/Steak and eggs from Serendipity Farms.png";
+import hamEggsImage from "../assets/Farm-fresh ham and eggs breakfast.png";
+import syrupsImage from "../assets/Farmhouse syrup lineup with vintage flair.png";
+import buildYourOwnImage from "../assets/Serendipity Farms breakfast menu.png";
+import bowlOfChiliImage from "../assets/Warm bowl of homemade chili.png";
+import chickpeaCurryImage from "../assets/Chickpea curry bowl with rustic charm.png";
+import grilledChickenSandwichImage from "../assets/Grilled chicken sandwich from our farm.png";
+import chickenWafflesImage from "../assets/Chicken and waffles Southern classic.png";
+import wingDingsImage from "../assets/Crispy wings bold flavors good times.png";
+import phillySteakImage from "../assets/Serendipity Farms Philly steak sandwich.png";
 
 const ITEM_IMAGES = {
   "Biscuits & Gravy": biscuitsImage,
@@ -37,6 +59,27 @@ const ITEM_IMAGES = {
   "Hash & Eggs": hashEggsImage,
   "Corned Beef Hash": cornedBeefHashImage,
   "Egg-straordinary Omeletes": omeletImage,
+  "Taylor Ham Breakfast": taylorHamImage,
+  "Campfire Skillet": campfireSkilletImage,
+  "Spicy Skillet Breakfast Scramble": spicySkilletImage,
+  "Corned Beef Hash Skillet": cornedBeefHashSkilletImage,
+  "Loaded Skillet": loadedSkilletImage,
+  "Veggie Skillet": veggieSkilletImage,
+  "Blueberry or Chocolate Chip Pancakes": blueberryPancakesImage,
+  "Pancakes with Meat": pancakesWithMeatImage,
+  "Belgian Waffle": frenchToastImage,
+  "French Toast": frenchToastImage2,
+  "Farmhouse Breakfast": farmhouseBreakfastImage,
+  "Steak & Eggs": steakEggsImage,
+  "Ham & Eggs": hamEggsImage,
+  "Syrups": syrupsImage,
+  "Build Your Own Breakfast": buildYourOwnImage,
+  "Bowl of Chili": bowlOfChiliImage,
+  "Chickpea Curry Bowl": chickpeaCurryImage,
+  "Grilled Chicken Breast Sandwich": grilledChickenSandwichImage,
+  "Chicken and Waffles": chickenWafflesImage,
+  "Chicken Wing-dings": wingDingsImage,
+  "Philly Steak & Cheese": phillySteakImage,
   "Pancakes or French Toast": pancakesImage,
   "Breakfast Sandwich": breakfastSandwichImage,
   "Fresh Fruit Plate": freshFruitImage,
@@ -108,8 +151,29 @@ function categoryId(name) {
 }
 
 export function MenuPage() {
+  const [lightbox, setLightbox] = useState(null);
+
   return (
     <div className="min-h-screen bg-brand-cream text-brand-charcoal">
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="max-w-3xl w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl"
+          />
+          <button
+            className="absolute top-5 right-5 text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center text-xl hover:bg-black/80 transition"
+            onClick={() => setLightbox(null)}
+          >
+            ✕
+          </button>
+        </div>
+      )}
       <SEO
         title="Menu"
         description="Browse The Farmer's Table full menu featuring farm-to-table breakfast, lunch, dinner, bakery items, and desserts made with locally-sourced Michigan ingredients."
@@ -191,7 +255,10 @@ export function MenuPage() {
                 >
                   {/* Item image if available */}
                   {ITEM_IMAGES[item.name] && (
-                    <div className="relative h-72 overflow-hidden">
+                    <div
+                      className="relative h-72 overflow-hidden cursor-zoom-in"
+                      onClick={() => setLightbox({ src: ITEM_IMAGES[item.name], alt: item.name })}
+                    >
                       <img
                         src={ITEM_IMAGES[item.name]}
                         alt={item.name}
@@ -199,6 +266,9 @@ export function MenuPage() {
                       />
                       <span className="absolute top-3 left-3 font-sans text-xs font-semibold uppercase tracking-widest text-brand-green bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
                         {getBadge(itemIndex)} ✦
+                      </span>
+                      <span className="absolute bottom-3 right-3 bg-black/40 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        ⤢
                       </span>
                     </div>
                   )}
@@ -259,6 +329,13 @@ export function MenuPage() {
           </div>
         </div>
       </section>
+
+      {/* Image Disclaimer */}
+      <div className="bg-brand-cream border-t border-brand-oat py-4 px-4 text-center">
+        <p className="font-sans text-xs text-brand-charcoal/50 italic">
+          * Food images are for presentation purposes only and may not reflect the exact appearance of menu items.
+        </p>
+      </div>
 
       <Footer />
     </div>
