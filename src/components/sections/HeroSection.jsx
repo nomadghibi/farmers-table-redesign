@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import farmFreshImage from "../../assets/Farm-fresh goodness.png";
+import farmFreshImage from "../../assets/Farm-fresh goodness.webp";
 import { BUSINESS_INFO } from "../../data/siteContent";
 
 export function HeroSection() {

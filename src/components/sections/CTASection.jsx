@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { BUSINESS_INFO } from "../../data/siteContent";
-import breakfastBoxImage from "../../assets/Farm fresh breakfast, rustic takeout vibe.png";
+import breakfastBoxImage from "../../assets/Farm fresh breakfast, rustic takeout vibe.webp";
 
 export function CTASection() {
   return (

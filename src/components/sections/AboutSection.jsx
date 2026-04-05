@@ -1,5 +1,5 @@
 import { SectionHeading } from "../ui/SectionHeading";
-import goldenHourImage from "../../assets/Golden hour.png";
+import goldenHourImage from "../../assets/Golden hour.webp";
 
 export function AboutSection() {
   return (

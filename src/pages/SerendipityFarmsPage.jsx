@@ -4,12 +4,12 @@ import { Footer } from "../components/layout/Footer";
 import { SEO } from "../components/util/SEO";
 import { Button } from "../components/ui/Button";
 import { BUSINESS_INFO } from "../data/siteContent";
-import goldenHourImage from "../assets/Golden hour.png";
-import chickenImage from "../assets/Farm-to-table heritage chicken advertisement.png";
-import porkImage from "../assets/Pasture-raised pork from Serendipity Farms.png";
-import eggsImage from "../assets/Farm-fresh eggs from happy hens.png";
-import steaksImage from "../assets/Premium grass-fed steaks for sale.png";
-import pasturePlateImage from "../assets/Pasture to plate farmhouse still life.png";
+import goldenHourImage from "../assets/Golden hour.webp";
+import chickenImage from "../assets/Farm-to-table heritage chicken advertisement.webp";
+import porkImage from "../assets/Pasture-raised pork from Serendipity Farms.webp";
+import eggsImage from "../assets/Farm-fresh eggs from happy hens.webp";
+import steaksImage from "../assets/Premium grass-fed steaks for sale.webp";
+import pasturePlateImage from "../assets/Pasture to plate farmhouse still life.webp";
 
 const PRODUCTS = [
   {

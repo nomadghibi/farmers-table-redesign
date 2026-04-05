@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/Button";
 import { BUSINESS_INFO, NAV_LINKS } from "../../data/siteContent";
 import { useCart } from "../../context/CartContext";
-import logoImage from "../../assets/logo.png";
+import logoImage from "../../assets/logo.webp";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

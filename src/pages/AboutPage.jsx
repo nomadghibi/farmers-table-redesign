@@ -4,12 +4,12 @@ import { Footer } from "../components/layout/Footer";
 import { SEO } from "../components/util/SEO";
 import { Button } from "../components/ui/Button";
 import { BUSINESS_INFO } from "../data/siteContent";
-import goldenHourImage from "../assets/Golden hour.png";
-import storefrontImage from "../assets/storefront.png";
-import pasturePlateImage from "../assets/Pasture to plate farmhouse still life.png";
-import chickenImage from "../assets/Farm-to-table heritage chicken advertisement.png";
-import eggsImage from "../assets/Farm-fresh eggs from happy hens.png";
-import porkImage from "../assets/Pasture-raised pork from Serendipity Farms.png";
+import goldenHourImage from "../assets/Golden hour.webp";
+import storefrontImage from "../assets/storefront.webp";
+import pasturePlateImage from "../assets/Pasture to plate farmhouse still life.webp";
+import chickenImage from "../assets/Farm-to-table heritage chicken advertisement.webp";
+import eggsImage from "../assets/Farm-fresh eggs from happy hens.webp";
+import porkImage from "../assets/Pasture-raised pork from Serendipity Farms.webp";
 
 const VALUES = [
   {
