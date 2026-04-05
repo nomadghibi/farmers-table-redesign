@@ -5,9 +5,12 @@ import { BUSINESS_INFO } from "../../data/siteContent";
 export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${farmFreshImage})` }}
+      <img
+        src={farmFreshImage}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        fetchpriority="high"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20" />
 
