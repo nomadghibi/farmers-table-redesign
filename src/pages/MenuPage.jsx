@@ -234,12 +234,70 @@ function categoryId(name) {
   return name.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
 }
 
+function PrintableMenu() {
+  return (
+    <div className="hidden print:block font-sans text-[#1a1a1a] bg-white">
+      {/* Header */}
+      <div className="text-center mb-6 border-b-2 border-[#1a1a1a] pb-4">
+        <h1 className="font-serif text-3xl font-bold tracking-wide uppercase">The Farmer's Table</h1>
+        <p className="font-serif text-base italic text-[#555] mt-1">Pasture to Plate — Farm to Table Dining</p>
+        <p className="text-xs mt-2 tracking-wide">4853 Webb Rd · Wolverine, Michigan 49799 · 231-418-2290</p>
+      </div>
+
+      {/* Categories */}
+      {MENU_DATA.map((cat) => (
+        <div key={cat.category} className="mb-6">
+          {/* Category heading */}
+          <div className="text-center mb-3">
+            <h2 className="font-serif text-xl font-bold uppercase tracking-widest border-b border-[#999] pb-1 inline-block px-6">
+              {cat.category}
+            </h2>
+            {cat.description && (
+              <p className="text-[9pt] text-[#666] italic mt-0.5">{cat.description}</p>
+            )}
+          </div>
+
+          {/* Items — two-column grid */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+            {cat.items.map((item) => (
+              <div key={item.name} className="pdf-item">
+                <div className="flex justify-between items-baseline gap-2">
+                  <span className="font-serif font-semibold text-[10.5pt] leading-snug">{item.name}</span>
+                  <span className="font-sans text-[9.5pt] font-medium whitespace-nowrap shrink-0 text-[#333]">{item.price}</span>
+                </div>
+                {item.description && (
+                  <p className="text-[8.5pt] text-[#555] leading-snug mt-0.5">{item.description}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      {/* Footer */}
+      <div className="text-center border-t border-[#999] pt-3 mt-4">
+        <p className="text-[8pt] text-[#777] italic">
+          * Images are for presentation only. Menu items and prices subject to change. Ask your server about today's specials.
+        </p>
+        <p className="text-[8pt] text-[#777] mt-1">
+          Mon &amp; Thu–Sun 8 AM – 7 PM · Tue–Wed 8 AM – 3 PM
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function MenuPage() {
   const [lightbox, setLightbox] = useState(null);
 
+  function handleDownloadPDF() {
+    window.print();
+  }
 
   return (
-    <div className="min-h-screen bg-brand-cream text-brand-charcoal">
+    <>
+    <PrintableMenu />
+    <div className="screen-only min-h-screen bg-brand-cream text-brand-charcoal">
       {/* Lightbox */}
       {lightbox && (
         <div
@@ -283,7 +341,18 @@ export function MenuPage() {
           <p className="font-sans text-base sm:text-xl md:text-2xl text-brand-oat/90 max-w-2xl mx-auto leading-relaxed">
             Farm-fresh ingredients, house-made recipes, and genuine Northern Michigan hospitality.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={handleDownloadPDF}
+              className="font-sans text-sm font-semibold px-6 py-3 rounded-full bg-brand-green text-white hover:bg-brand-green/90 transition-all duration-200 flex items-center gap-2 shadow-md"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+              Download Menu PDF
+            </button>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
             {MENU_DATA.map((cat) => (
               <a
                 key={cat.category}
@@ -426,5 +495,6 @@ export function MenuPage() {
 
       <Footer />
     </div>
+    </>
   );
 }

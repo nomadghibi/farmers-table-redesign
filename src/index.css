@@ -41,6 +41,34 @@ select {
   font: inherit;
 }
 
+/* ── Print / PDF styles ────────────────────────────────────────── */
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 0.65in 0.6in;
+  }
+
+  /* Hide everything that is NOT the printable menu */
+  body > #root .screen-only,
+  body > #root .screen-only * {
+    display: none !important;
+  }
+
+  /* Reset colours for ink-friendly output */
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    font-size: 10pt;
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  /* Prevent orphaned headings */
+  h2, h3 { break-after: avoid; }
+
+  /* Keep each menu item together */
+  .pdf-item { break-inside: avoid; }
+}
+
 /* Smooth animations */
 @layer utilities {
   @keyframes fadeInUp {
