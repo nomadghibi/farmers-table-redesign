@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
-import { BUSINESS_INFO, HIGHLIGHTS, HOURS, PRODUCTS } from "../data/siteContent";
+import { BUSINESS_INFO, HIGHLIGHTS, PRODUCTS } from "../data/siteContent";
 import storefrontImage from "../assets/storefront.webp";
 import giftCardImage from "../assets/gift25.webp";
 import tshirtImage from "../assets/Tshirt.webp";
@@ -31,17 +30,7 @@ import toyBuggyImage from "../assets/Rustic farmhouse toy buggy vignette.webp";
 import marketBasketImage from "../assets/Farmhouse market display with rustic charm.webp";
 
 export function StorefrontPage() {
-  const { addToCart, cartCount } = useCart();
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [addedIds, setAddedIds] = useState({});
-
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    setAddedIds((prev) => ({ ...prev, [product.id]: true }));
-    setTimeout(() => {
-      setAddedIds((prev) => ({ ...prev, [product.id]: false }));
-    }, 1500);
-  };
 
   // Create products with actual imported images
   const productImageMap = {
@@ -89,21 +78,19 @@ export function StorefrontPage() {
           style={{ backgroundImage: `url(${storefrontImage})` }}
         />
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 text-center text-brand-cream px-4">
+        <div className="relative z-10 text-center text-brand-cream px-4 max-w-3xl mx-auto">
+          <span className="inline-block font-sans text-xs font-bold uppercase tracking-[0.3em] text-brand-oat bg-white/10 border border-white/20 backdrop-blur-sm px-5 py-2 rounded-full mb-6">
+            Coming Soon
+          </span>
           <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-            Welcome to The Farmer's Table
+            The Farmer's Table Online Store
           </h1>
-          <p className="font-sans text-base sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed">
-            Experience the warmth of farm-to-table dining in the heart of Wolverine, Michigan
+          <p className="font-sans text-base sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-brand-oat/90">
+            We're bringing the farm to your door — local goods, Michigan flavors, and handcrafted gifts, all in one place.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="lg">
-              View Menu
-            </Button>
-            <Button variant="secondary" size="lg">
-              Get Directions
-            </Button>
-          </div>
+          <p className="font-sans text-sm text-brand-oat/70">
+            Browse a preview of what's coming below.
+          </p>
         </div>
       </section>
 
@@ -167,15 +154,9 @@ export function StorefrontPage() {
                 </button>
               ))}
             </nav>
-            {cartCount > 0 && (
-              <Link
-                to="/checkout"
-                className="ml-4 flex items-center gap-2 bg-brand-green text-brand-cream px-4 py-2 rounded-full font-sans text-sm font-semibold shadow-soft hover:bg-[#1e4a37] transition-all duration-200"
-              >
-                <span>🛒</span>
-                <span>{cartCount} · Checkout</span>
-              </Link>
-            )}
+            <span className="ml-4 font-sans text-xs font-semibold uppercase tracking-widest text-brand-sage border border-brand-sage/40 px-4 py-2 rounded-full">
+              Coming Soon
+            </span>
           </div>
         </div>
       </section>
@@ -183,9 +164,14 @@ export function StorefrontPage() {
       {/* Products Section */}
       <section className="py-20 px-4 bg-brand-cream">
         <div className="max-w-7xl mx-auto">
-          <SectionHeading className="text-center mb-16">
-            Shop Our Store
-          </SectionHeading>
+          <div className="text-center mb-16">
+            <SectionHeading>
+              A Preview of What's Coming
+            </SectionHeading>
+            <p className="font-sans text-base text-brand-charcoal/60 mt-4 max-w-xl mx-auto">
+              Our online store is in the works. Here's a look at the local goods, gifts, and farm products we'll be offering.
+            </p>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
               <div
@@ -204,7 +190,7 @@ export function StorefrontPage() {
                     <h3 className="font-serif text-xl font-semibold text-brand-charcoal">
                       {product.name}
                     </h3>
-                    <span className="font-sans text-lg font-bold text-brand-green sm:ml-2 shrink-0">
+                    <span className="font-sans text-lg font-bold text-brand-charcoal/40 sm:ml-2 shrink-0">
                       ${product.price}
                     </span>
                   </div>
@@ -215,16 +201,9 @@ export function StorefrontPage() {
                     <span className="font-sans text-xs uppercase tracking-wider text-brand-sage">
                       {product.category}
                     </span>
-                    <button
-                      onClick={() => handleAddToCart(product)}
-                      className={`px-4 py-2 rounded-full font-sans text-sm font-semibold transition-all duration-200 ${
-                        addedIds[product.id]
-                          ? "bg-brand-sage text-brand-cream cursor-default"
-                          : "bg-brand-green text-brand-cream hover:bg-[#1e4a37] hover:-translate-y-0.5"
-                      }`}
-                    >
-                      {addedIds[product.id] ? "Added ✓" : "Add to Cart"}
-                    </button>
+                    <span className="px-4 py-2 rounded-full font-sans text-xs font-semibold uppercase tracking-wider bg-brand-oat text-brand-charcoal/50 border border-brand-oat">
+                      Coming Soon
+                    </span>
                   </div>
                 </div>
               </div>
@@ -268,11 +247,14 @@ export function StorefrontPage() {
             />
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="font-serif text-4xl font-bold mb-8">
-              Ready to Experience Farm-to-Table Dining?
+            <h2 className="font-serif text-4xl font-bold mb-4">
+              While You Wait — Come Dine With Us
             </h2>
-            <p className="font-sans text-xl mb-12 leading-relaxed">
-              Join us for an unforgettable meal crafted with love, served with warmth, and rooted in tradition.
+            <p className="font-sans text-xl mb-4 leading-relaxed">
+              The online store is on its way. In the meantime, visit us in Wolverine for farm-to-table dining crafted with love and rooted in Michigan tradition.
+            </p>
+            <p className="font-sans text-base mb-10 text-brand-cream/70">
+              Questions about products or local goods? Give us a call — we're happy to help.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Button variant="accent" size="lg">
@@ -282,7 +264,7 @@ export function StorefrontPage() {
               </Button>
               <Button variant="secondary" size="lg">
                 <a href={BUSINESS_INFO.phoneLink}>
-                  Call Now
+                  Call {BUSINESS_INFO.phone}
                 </a>
               </Button>
               <Link to="/menu">
