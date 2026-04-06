@@ -5,6 +5,7 @@ import { AboutSection } from "../components/sections/AboutSection";
 import { HighlightsSection } from "../components/sections/HighlightsSection";
 import { FeaturedMenuSection } from "../components/sections/FeaturedMenuSection";
 import { CTASection } from "../components/sections/CTASection";
+import { ReviewsSection } from "../components/sections/ReviewsSection";
 import { VisitUsSection } from "../components/sections/VisitUsSection";
 import { SEO } from "../components/util/SEO";
 
@@ -21,6 +22,7 @@ export function HomePage() {
       <AboutSection />
       <HighlightsSection />
       <FeaturedMenuSection />
+      <ReviewsSection />
       <CTASection />
       <VisitUsSection />
       <Footer />

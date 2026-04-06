@@ -250,6 +250,51 @@ export const PRODUCTS = [
   },
 ];
 
+// Update these with real reviews copied from your Google Business profile
+export const GOOGLE_REVIEWS = {
+  rating: 4.9,
+  totalReviews: 120,
+  googleUrl: "https://www.google.com/maps/search/?api=1&query=4853+Webb+Rd+Wolverine+Michigan+49799",
+  reviews: [
+    {
+      name: "Sarah M.",
+      rating: 5,
+      date: "March 2025",
+      text: "Absolutely the best breakfast in northern Michigan. The biscuits and gravy are unlike anything I've ever had — rich, homemade, and made with real farm ingredients. The staff made us feel right at home.",
+    },
+    {
+      name: "James R.",
+      rating: 5,
+      date: "February 2025",
+      text: "A hidden gem in Wolverine! We stopped in on a road trip and ended up staying for hours. The Steak & Eggs were incredible — you can really taste the quality of locally sourced ingredients.",
+    },
+    {
+      name: "Linda K.",
+      rating: 5,
+      date: "January 2025",
+      text: "The Farmer's Table is everything a farm-to-table restaurant should be. The food is fresh, the portions are generous, and the atmosphere is warm and welcoming. The fresh baked pie alone is worth the drive.",
+    },
+    {
+      name: "Tom & Carol W.",
+      rating: 5,
+      date: "December 2024",
+      text: "We've been coming here every weekend for months. The Loaded Skillet is our go-to, and the coffee is always perfect. The whole team goes above and beyond — feels like family every single time.",
+    },
+    {
+      name: "Michelle D.",
+      rating: 5,
+      date: "November 2024",
+      text: "Hands down the most genuine farm-to-table experience we've found in Michigan. Everything is made from scratch and you can truly taste the difference. The Smash Burger for lunch is a must.",
+    },
+    {
+      name: "David P.",
+      rating: 5,
+      date: "October 2024",
+      text: "Stopped here for dinner and had the New York Strip. Perfectly cooked, locally sourced, and served with the most comforting sides. The atmosphere felt like a true northern Michigan treasure.",
+    },
+  ],
+};
+
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
