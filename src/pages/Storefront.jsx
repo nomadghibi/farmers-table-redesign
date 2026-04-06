@@ -186,13 +186,10 @@ export function StorefrontPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <div className="flex flex-col gap-1 sm:flex-row sm:justify-between sm:items-start mb-2">
+                  <div className="mb-2">
                     <h3 className="font-serif text-xl font-semibold text-brand-charcoal">
                       {product.name}
                     </h3>
-                    <span className="font-sans text-lg font-bold text-brand-charcoal/40 sm:ml-2 shrink-0">
-                      ${product.price}
-                    </span>
                   </div>
                   <p className="font-sans text-sm text-brand-charcoal/80 mb-4 leading-relaxed">
                     {product.description}
