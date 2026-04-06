@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { GOOGLE_REVIEWS } from "../../data/siteContent";
 
 function Stars({ count }) {
@@ -30,7 +31,19 @@ function GoogleLogo() {
 }
 
 export function ReviewsSection() {
-  const { rating, totalReviews, googleUrl, reviews } = GOOGLE_REVIEWS;
+  const [liveData, setLiveData] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data && data.reviews?.length) setLiveData(data); })
+      .catch(() => {});
+  }, []);
+
+  const { googleUrl } = GOOGLE_REVIEWS;
+  const rating = liveData?.rating ?? GOOGLE_REVIEWS.rating;
+  const totalReviews = liveData?.totalReviews ?? GOOGLE_REVIEWS.totalReviews;
+  const reviews = liveData?.reviews ?? GOOGLE_REVIEWS.reviews;
 
   return (
     <section className="py-24 px-4 bg-[#f5ede3]">
