@@ -58,7 +58,9 @@ export function ReviewsSection() {
                 <span className="font-serif text-3xl font-bold text-brand-charcoal leading-none">{rating}</span>
                 <Stars count={Math.round(rating)} />
               </div>
-              <span className="font-sans text-xs text-brand-charcoal/50 mt-0.5">Based on {totalReviews}+ Google reviews</span>
+              <span className="font-sans text-xs text-brand-charcoal/50 mt-0.5">
+                {totalReviews ? `Based on ${totalReviews}+ Google reviews` : "Google Reviews"}
+              </span>
             </div>
           </div>
         </div>
@@ -73,7 +75,7 @@ export function ReviewsSection() {
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="font-sans font-semibold text-brand-charcoal text-sm">{review.name}</p>
-                  <p className="font-sans text-xs text-brand-charcoal/40 mt-0.5">{review.date}</p>
+                  {review.date && <p className="font-sans text-xs text-brand-charcoal/40 mt-0.5">{review.date}</p>}
                 </div>
                 <GoogleLogo />
               </div>
